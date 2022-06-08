@@ -1,0 +1,88 @@
+//header color
+$mainMenuColor: #fff;
+$mainMenuBgColor: #222;
+
+header {
+  width: 100%;
+
+  .inner {
+    height: 100px;
+    margin: 0px 100px;
+    position: relative;
+    h1 {
+      position: absolute;
+      bottom: 20px;
+      left: 0px;
+
+      a {
+        @include titleStyle($fz: $fontXXL, $c: $mainMenuColor);
+      }
+    }
+
+    #gnb {
+      position: absolute;
+      bottom: 10px;
+      right: 0px;
+
+      li {
+        float: left;
+
+        a {
+          display: inline-block;
+          padding: 20px 0;
+          margin-left: 60px;
+          @include titleStyle($fz: $fontL, $c: $mainMenuColor);
+        }
+      }
+    }
+
+    .fa-bars {
+      position: absolute;
+      bottom: 20px;
+      right: 30px;
+      font-size: $fontXL;
+      display: none;
+    }
+  }
+
+  &.main {
+    background: transparent;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 2;
+
+    .inner {
+      h1 a {
+        color: $mainMenuColor;
+      }
+
+      #gnb li a {
+        color: $mainMenuColor;
+      }
+
+      .fa-bars {
+        color: $mainMenuColor;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  header {
+    .inner {
+      width: 100%;
+
+      h1 {
+        left: 30px;
+      }
+
+      #gnb {
+        display: none;
+      }
+      .fa-bars {
+        display: block;
+      }
+    }
+  }
+}

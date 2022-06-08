@@ -1,0 +1,38 @@
+// title style
+@mixin titleStyle(
+  $fz: $fontXXXL,
+  $fw: 800,
+  $lh: 1.8,
+  $c: #222,
+  $ff: $titleFont
+) {
+  font-family: $ff;
+  font-size: $fz;
+  line-height: $lh;
+  font-weight: $fw;
+  color: $c;
+}
+
+@mixin txtStyle($fz: $fontS, $fw: 400, $lh: 1.5, $c: #999) {
+  font-family: $titleFont;
+  font-size: $fz;
+  line-height: $lh;
+  font-weight: $fw;
+  color: $c;
+}
+
+@mixin cb() {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+@mixin pseudo($po: absolute, $t: auto, $l: auto, $r: auto, $b: auto) {
+  content: "";
+  display: block;
+  position: absolute;
+  top: $t;
+  left: $l;
+  right: $r;
+  bottom: $b;
+}

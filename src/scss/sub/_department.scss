@@ -1,0 +1,77 @@
+.Team {
+  > .inner {
+    .wrap {
+      margin-top: 200px;
+      &::after {
+        content: "";
+        display: block;
+        clear: both;
+      }
+      article {
+        width: 33.333%;
+        float: left;
+        padding: 10px;
+        margin-bottom: 50px;
+
+        &:nth-child(3n - 1) {
+          position: relative;
+          top: -100px;
+        }
+
+        .inner {
+          width: 100%;
+          .pic {
+            width: 100%;
+            height: 600px;
+            background: #000;
+            margin-bottom: 20px;
+            filter: saturate(0.2);
+            transition: 0.5s;
+
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+
+            &:hover {
+              filter: saturate(1.2);
+            }
+          }
+
+          h3 {
+            @include titleStyle($fw: 800, $c: #444, $fz: $fontXXL);
+          }
+
+          p {
+            @include txtStyle($fw: 400, $c: #777, $fz: $fontL);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  .Department {
+    .inner {
+      .wrap {
+        article {
+          width: 50%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $mp) {
+  .Department {
+    .inner {
+      .wrap {
+        article {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

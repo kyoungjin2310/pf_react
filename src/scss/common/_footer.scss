@@ -1,0 +1,32 @@
+footer {
+  width: 100%;
+  .inner {
+    margin: 0px 100px;
+    position: relative;
+    padding: 50px 0;
+    &::after {
+      @include cb();
+    }
+    p {
+      float: right;
+      @include txtStyle($fz: $fontM, $c: #555, $fw: 600);
+    }
+    a {
+      display: inline-block;
+      vertical-align: top;
+      @include txtStyle($fz: $fontM, $c: #222, $fw: 600);
+      &:hover {
+        color: $maincolor;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  footer {
+    .inner {
+      width: 100%;
+      padding: 50px 0;
+    }
+  }
+}
