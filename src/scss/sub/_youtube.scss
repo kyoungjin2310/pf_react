@@ -41,7 +41,7 @@
       p {
         @include txtStyle($fz: $fontM, $c: #777, $ff: $txtFont);
         filter: saturate(0);
-        @include ellipsis(3, 1.8);
+        @include ellipsis(5, 1.8);
       }
 
       span {
@@ -52,7 +52,7 @@
 
     .pic {
       width: 30%;
-      height: 200px;
+      height: 350px;
       background: #000;
       filter: saturate(0);
       transition: 0.5s;
