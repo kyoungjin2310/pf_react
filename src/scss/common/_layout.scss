@@ -36,7 +36,13 @@
     }
     .titleWrap {
       position: relative;
-      margin-bottom: 100px;
+      padding-bottom: 100px;
+      p {
+        position: absolute;
+        right: 100px;
+        bottom: 40px;
+        @include txtStyle($fw: 400, $c: #fff, $fz: $fontXL);
+      }
     }
     h2 {
       display: inline-block;

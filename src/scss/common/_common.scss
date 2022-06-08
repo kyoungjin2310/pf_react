@@ -13,8 +13,8 @@
   color: $c;
 }
 
-@mixin txtStyle($fz: $fontS, $fw: 400, $lh: 1.5, $c: #999) {
-  font-family: $titleFont;
+@mixin txtStyle($fz: $fontS, $fw: 400, $lh: 1.5, $c: #999, $ff: $titleFont) {
+  font-family: $ff;
   font-size: $fz;
   line-height: $lh;
   font-weight: $fw;
@@ -35,4 +35,14 @@
   left: $l;
   right: $r;
   bottom: $b;
+}
+
+@mixin ellipsis($line-cnt, $line-height) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $line-cnt;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+  line-height: $line-height;
 }

@@ -1,26 +1,24 @@
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
 function Popup({ children, setOpen }) {
-	useEffect(() => {
-		document.body.style.overflow = 'hidden';
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
 
-		return () => {
-			document.body.style.overflow = 'auto';
-		};
-	}, []);
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, []);
 
-	return (
-		<aside className='pop'>
-			<div className='con'>
-				{children}
-				<span
-					className='close'
-					onClick={() => setOpen(false)}>
-					close
-				</span>
-			</div>
-		</aside>
-	);
+  return (
+    <aside className="pop">
+      <div className="con">
+        {children}
+        <span className="close" onClick={() => setOpen(false)}>
+          close
+        </span>
+      </div>
+    </aside>
+  );
 }
 
 export default Popup;
