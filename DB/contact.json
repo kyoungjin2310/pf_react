@@ -1,0 +1,32 @@
+{
+  "contact": {
+    "txt": "Get in touch with us. Send us a message.",
+    "content": {
+      "support": [
+        {
+          "email": ["Neige@mainNeige.com", "Neige@branchNeige.com"],
+          "call": ["(+33) 050-2684-5803", "(+33) 050-1848-2584"]
+        }
+      ]
+    },
+    "location": [
+      {
+        "id": 1,
+        "title": "Neige",
+        "pic": "marker1.png",
+        "picWidth": 126,
+        "picHeight": 114,
+        "latLngX": 37.51270773913474,
+        "latLngY": 127.06069417509839
+      },
+      {
+        "id": 2,
+        "title": "Neige",
+        "picWidth": 126,
+        "picHeight": 114,
+        "latLngX": 37.5188715541183,
+        "latLngY": 127.12528957675329
+      }
+    ]
+  }
+}
