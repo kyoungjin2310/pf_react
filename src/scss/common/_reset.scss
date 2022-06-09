@@ -18,8 +18,31 @@ li {
 a {
   text-decoration: none;
 }
+em,
+i {
+  font-style: normal;
+}
+table {
+  border-collapse: collapse;
+}
+fieldset {
+  border: none;
+}
+.h {
+  position: absolute;
+  top: -9999px;
+  opacity: 0;
+}
+img {
+  vertical-align: top;
+}
 body {
   font-family: $txtFont;
   font-size: $fontS;
   font-weight: 400;
+}
+.h {
+  position: absolute;
+  top: -9999px;
+  opacity: 0;
 }

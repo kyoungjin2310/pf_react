@@ -4,16 +4,15 @@ import Header from "./componetns/common/Header";
 import Footer from "./componetns/common/Footer";
 //main
 import Visual from "./componetns/main/Visual";
-import News from "./componetns/main/News";
 import Pics from "./componetns/main/Pics";
 import Vids from "./componetns/main/Vids";
 //sub
 import Department from "./componetns/sub/Department";
 import Gallery from "./componetns/sub/Gallery";
-import Community from "./componetns/sub/Community";
+import News from "./componetns/sub/News";
 import Youtube from "./componetns/sub/Youtube";
-import Location from "./componetns/sub/Location";
 import Join from "./componetns/sub/Join";
+import Contact from "./componetns/sub/Contact";
 
 function App() {
   return (
@@ -23,7 +22,6 @@ function App() {
           {/* 메인용 header */}
           <Header type={"main"} />
           <Visual />
-          <News />
           <Pics />
           <Vids />
         </Route>
@@ -33,10 +31,10 @@ function App() {
       </Switch>
 
       <Route path="/about" component={Department} />
-      <Route path="/news" component={Community} />
+      <Route path="/news" component={News} />
       <Route path="/pr/gallery" component={Gallery} />
       <Route path="/pr/youtube" component={Youtube} />
-      <Route path="/contact" component={Location} />
+      <Route path="/contact" component={Contact} />
       <Route path="/join" component={Join} />
 
       <Footer />

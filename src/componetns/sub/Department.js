@@ -1,9 +1,9 @@
 import Layout from "../common/Layout";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { path } from "../../api";
 
 function Department() {
-  const path = process.env.PUBLIC_URL;
   const [Members, setMembers] = useState([]);
   const depthTwo = ["About Us", "Our Team"];
 

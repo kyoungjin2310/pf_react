@@ -13,7 +13,29 @@
   color: $c;
 }
 
+@mixin titleStyle2(
+  $fz: $fontXXL,
+  $fw: 800,
+  $lh: 1.8,
+  $c: #222,
+  $ff: $subTitle
+) {
+  font-family: $ff;
+  font-size: $fz;
+  line-height: $lh;
+  font-weight: $fw;
+  color: $c;
+}
+
 @mixin txtStyle($fz: $fontS, $fw: 400, $lh: 1.5, $c: #999, $ff: $titleFont) {
+  font-family: $ff;
+  font-size: $fz;
+  line-height: $lh;
+  font-weight: $fw;
+  color: $c;
+}
+
+@mixin txtStyle2($fz: $fontS, $fw: 400, $lh: 1.5, $c: #999, $ff: $txtFont) {
   font-family: $ff;
   font-size: $fz;
   line-height: $lh;
