@@ -1,0 +1,52 @@
+.About {
+  > .inner {
+    h2 {
+      line-height: 1.2;
+      &::before {
+        bottom: -100px;
+      }
+    }
+  }
+  .info {
+    margin-top: 120px;
+  }
+  .infoTxt {
+    margin-top: 100px;
+    ul {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      li {
+        width: 30%;
+      }
+    }
+  }
+  .txt {
+    width: 30%;
+    @include txtStyle2($fz: $fontM, $c: #999);
+    .title {
+      @include txtStyle($fz: $fontXL, $c: #ccc, $fw: 600);
+      margin-bottom: 30px;
+    }
+  }
+  .infoExplan {
+    .title{@include txtStyle($fz: 4rem, $c: #ccc, $fw: 600, $lh: 1.2);
+    }
+    }
+  .infoSubTxt {
+    margin-bottom: 100px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    @include txtStyle($fz: $fontM, $c: #aaa);
+  }
+  .pic {
+    width: 100%;
+    overflow: hidden;
+    img {
+      width: 100%;
+    }
+  }
+}

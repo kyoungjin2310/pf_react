@@ -7,7 +7,11 @@ function Youtube() {
   const [Vids, setVids] = useState([]);
   const [Open, setOpen] = useState(false);
   const [Index, setIndex] = useState(0);
-  const depthTwo = ["Gallery", "Youtube"];
+  const depthTwo = [
+    { name: "Gallery", path: "/pr/gallery" },
+    { name: "Youtube", path: "/pr" },
+  ];
+
   const subTxt =
     "This is Neige's video. Please click the video image in the list.";
 
@@ -44,8 +48,11 @@ function Youtube() {
 
           return (
             <article key={idx}>
-              <h3>{tit}</h3>
+              <div className="num">
+                <span>{idx < 10 ? `0${idx + 1}` : idx + 1}</span>
+              </div>
               <div className="txt">
+                <h3>{tit}</h3>
                 <p>{desc}</p>
                 <span>{date.split("T")[0]}</span>
               </div>

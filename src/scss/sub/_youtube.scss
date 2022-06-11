@@ -24,18 +24,26 @@
     justify-content: space-between;
     background-color: #fff;
 
+    .num {
+      @include titleStyle($fz: $fontXXXL, $fw: 800, $c: #222, $lh: 1em);
+      width: 10%;
+      &::after {
+      }
+    }
+
     h3 {
-      width: 20%;
       filter: saturate(0);
       @include titleStyle($fz: $fontXL, $fw: 600, $c: #222);
-      @include ellipsis(4, 1.8);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      margin-bottom: 30px;
     }
 
     .txt {
-      width: 46%;
-      display: flex;
-      flex-wrap: wrap;
-      align-content: space-between;
+      position: relative;
+      width: 56%;
+      padding: 0 30px;
       @include titleStyle($fz: $fontXL, $fw: 600, $c: #222);
 
       p {
@@ -45,6 +53,9 @@
       }
 
       span {
+        position: absolute;
+        left: 30px;
+        bottom: 0;
         @include txtStyle($fz: $fontM, $c: #777);
         letter-spacing: 1px;
       }

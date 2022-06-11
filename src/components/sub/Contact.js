@@ -13,9 +13,12 @@ const Contact = () => {
     email: ["Neige@mainNeige.com", "Neige@branchNeige.com"],
     call: ["(+33) 050-2684-5803", "(+33) 050-1848-2584"],
   };
-  const [Contact, setContact] = useState(contactList);
   const { location, email, call } = contactList;
-  const depthTwo = ["Contact Us", "Main Blog", "SNS"];
+  const depthTwo = [
+    { name: "Contact Us", path: "/contact" },
+    { name: "Main Blog", path: "other" },
+    { name: "SNS", path: "other" },
+  ];
   const subTxt =
     "Didn't find what you are looking for? Don't worry, we can help you.";
   return (

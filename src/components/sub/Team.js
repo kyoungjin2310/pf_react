@@ -3,10 +3,12 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { path } from "../../api";
 
-function Department() {
+function Team({ match }) {
   const [Members, setMembers] = useState([]);
-  const depthTwo = ["About Us", "Our Team"];
-
+  const depthTwo = [
+    { name: "About Us", path: `/about` },
+    { name: "Our Team", path: `/about/team` },
+  ];
   useEffect(() => {
     axios.get(`${path}/DB/members.json`).then((json) => {
       setMembers(json.data.members);
@@ -34,4 +36,4 @@ function Department() {
   );
 }
 
-export default Department;
+export default Team;

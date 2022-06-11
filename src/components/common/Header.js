@@ -20,7 +20,7 @@ function Header({ type }) {
             <Link to="/news">News</Link>
           </li>
           <li>
-            <Link to="/pr/youtube">PR</Link>
+            <Link to="/pr">PR</Link>
           </li>
           <li>
             <Link to="/contact">Contact Us</Link>

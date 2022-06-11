@@ -20,8 +20,8 @@ function Layout({ name, title, children, depthTwo, subTxt }) {
               {depthTwo.map((item, index) => {
                 return (
                   <li key={index}>
-                    <NavLink activeStyle={style} to={`/${index}`}>
-                      {item}
+                    <NavLink activeStyle={style} to={item.path}>
+                      {item.name}
                     </NavLink>
                   </li>
                 );
