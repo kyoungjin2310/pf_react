@@ -1,9 +1,53 @@
 .Work {
+  position: relative;
+  margin: 100px 100px;
+  .workTitle {
+    height: 100vh;
+    span {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      @include titleStyle($fz: 32vw, $c: #fff, $fw: 600);
+      letter-spacing: -10px;
+      z-index: -1;
+    }
+  }
   .workList {
+    position: relative;
+    li {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      margin-bottom: 400px;
+      @include txtStyle2($fz: $fontM, $c: #eee, $lh: 1.8);
+      &.odd {
+        flex-direction: unset;
+        .txt {
+          padding-left: 50px;
+          padding-right: 0px;
+        }
+      }
+      h3 {
+        @include titleStyle($fz: $fontXXL, $c: #fff, $fw: 500);
+        margin-bottom: 30px;
+      }
+      span {
+        padding: 0 10px;
+        background-color: #000;
+      }
+    }
   }
   .pic {
+    width: 100%;
+    max-width: 40%;
     img {
       width: 100%;
     }
+  }
+  .txt {
+    width: calc(100% - 40%);
+    padding-right: 50px;
   }
 }

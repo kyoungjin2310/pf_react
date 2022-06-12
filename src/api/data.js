@@ -64,27 +64,27 @@ export const workList = [
     img: "https://images.unsplash.com/photo-1626320381879-4a80fe262e2e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80",
   },
   {
-    title: "FUNDING AND PARTNERSHIP OPPORTUNITIES",
-    txt: "We’ve spent a lot of time thinking about this. What is it that we actually do? Do we make websites? Yes, sometimes. Do we make apps and other digital products? Yup, we make a fair amount of those. Do we create brands? Yea, that too. After thinking and thinking, taking long pensive walks on the beach, and even talking to some people, we realized that what we really do is create connections. We help our clients connect with their customers.",
-    img: "https://images.unsplash.com/photo-1617062004315-a7c65e9015c8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80",
-  },
-  {
-    title: "COMMUNITY BUILDING",
-    txt: "When you work with Ueno, we begin by spending quality time with you, figuring out who you really are and what you’re really about. Then we start building: We come up with a brand strategy that tells your story. We help you shape your product in a way that will make your customers happier and more productive. We build digital experiences that get the word out to the people who are looking for you, whether they know it or not.",
-    img: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1976&q=80",
-  },
-  {
     title: "COMMUNITY BUILDING",
     txt: "When you work with Ueno, we begin by spending quality time with you, figuring out who you really are and what you’re really about. Then we start building: We come up with a brand strategy that tells your story. We help you shape your product in a way that will make your customers happier and more productive. We build digital experiences that get the word out to the people who are looking for you, whether they know it or not.",
     img: "https://images.unsplash.com/photo-1606936635253-3af20c64bb9a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1976&q=80",
   },
   {
-    title: "COMMUNITY BUILDING",
+    title: "FUNDING AND PARTNERSHIP OPPORTUNITIES",
+    txt: "We’ve spent a lot of time thinking about this. What is it that we actually do? Do we make websites? Yes, sometimes. Do we make apps and other digital products? Yup, we make a fair amount of those. Do we create brands? Yea, that too. After thinking and thinking, taking long pensive walks on the beach, and even talking to some people, we realized that what we really do is create connections. We help our clients connect with their customers.",
+    img: "https://images.unsplash.com/photo-1617062004315-a7c65e9015c8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80",
+  },
+  {
+    title: "OBJECTS AND CURIOSITIES",
+    txt: "When you work with Ueno, we begin by spending quality time with you, figuring out who you really are and what you’re really about. Then we start building: We come up with a brand strategy that tells your story. We help you shape your product in a way that will make your customers happier and more productive. We build digital experiences that get the word out to the people who are looking for you, whether they know it or not.",
+    img: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1976&q=80",
+  },
+  {
+    title: "INSTALLATIONS & COLLABORATIONS",
     txt: "When you work with Ueno, we begin by spending quality time with you, figuring out who you really are and what you’re really about. Then we start building: We come up with a brand strategy that tells your story. We help you shape your product in a way that will make your customers happier and more productive. We build digital experiences that get the word out to the people who are looking for you, whether they know it or not.",
     img: "https://images.unsplash.com/photo-1627440952393-03eab14bef25?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2071&q=80",
   },
   {
-    title: "COMMUNITY BUILDING",
+    title: "INTERIORS & BRANDING",
     txt: "When you work with Ueno, we begin by spending quality time with you, figuring out who you really are and what you’re really about. Then we start building: We come up with a brand strategy that tells your story. We help you shape your product in a way that will make your customers happier and more productive. We build digital experiences that get the word out to the people who are looking for you, whether they know it or not.",
     img: "https://images.unsplash.com/photo-1635868388973-c49ca747a83b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
   },

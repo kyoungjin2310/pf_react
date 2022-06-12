@@ -3,8 +3,11 @@ $mainMenuColor: #fff;
 $mainMenuBgColor: #222;
 
 header {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-
+  z-index: 100;
   .inner {
     height: 100px;
     margin: 0px 100px;
