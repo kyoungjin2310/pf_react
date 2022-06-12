@@ -39,11 +39,11 @@
           }
 
           h3 {
-            @include titleStyle($fw: 800, $c: #444, $fz: $fontXXL);
+            @include titleStyle($fw: 800, $c: #eee, $fz: $fontXXL);
           }
 
           p {
-            @include txtStyle($fw: 400, $c: #777, $fz: $fontL);
+            @include txtStyle($fw: 400, $c: #999, $fz: $fontL);
           }
         }
       }

@@ -31,13 +31,11 @@ $maincolor: red;
 
 //main
 @import "main/visual";
-@import "main/news";
 @import "main/pics";
 @import "main/vids";
 
 //sub {
 @import "sub/about";
-@import "sub/community";
 @import "sub/youtube";
 @import "sub/gallery";
 @import "sub/location";
@@ -45,3 +43,4 @@ $maincolor: red;
 @import "sub/join";
 @import "sub/team";
 @import "sub/work";
+@import "sub/news";

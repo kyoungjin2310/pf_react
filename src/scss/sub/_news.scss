@@ -1,0 +1,256 @@
+.News {
+  .write {
+    position: relative;
+    z-index: 1;
+    text-align: right;
+    margin: -100px 100px 60px;
+    button {
+      cursor: pointer;
+      border: none;
+      outline: none;
+      @include titleStyle2($fz: $fontL);
+      width: 130px;
+      padding: 10px 0;
+      text-align: center;
+    }
+  }
+
+  .list {
+    border-bottom: 1px solid #aaa;
+    padding: 50px 100px;
+    justify-content: space-between;
+    align-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+  > .inner {
+    margin: 200px 0 0;
+    h2 {
+      margin-left: 100px;
+      margin-right: 100px;
+      &::before {
+        bottom: -100px;
+      }
+    }
+    .titleWrap p {
+      bottom: 150px;
+    }
+    .num {
+      @include titleStyle($fz: $fontXXXL, $fw: 800, $c: #222, $lh: 1em);
+      width: 10%;
+    }
+    .txt {
+      position: relative;
+      width: 70%;
+      padding: 0 30px;
+      @include txtStyle($fz: $fontL, $c: #777, $ff: $txtFont);
+      filter: saturate(0);
+
+      .title {
+        @include titleStyle($fz: $fontXXL, $fw: 600, $c: #222);
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+      p {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+    }
+    .titleWrap {
+      padding-bottom: 270px;
+    }
+
+    .inputBox {
+      width: 100%;
+      padding: 50px 100px;
+      margin-bottom: 50px;
+      background-color: #fff;
+
+      input[type="text"],
+      textarea {
+        width: 50%;
+        padding: 8px 10px;
+        border: 1px solid #aaa;
+        margin-bottom: 20px;
+        resize: none;
+      }
+
+      .btnSet {
+        button {
+          width: 150px;
+          height: 30px;
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          border: none;
+          background: #555;
+          color: #fff;
+          cursor: pointer;
+          margin-right: 20px;
+        }
+      }
+    }
+
+    .showBox {
+      width: 100%;
+      background-color: #fff;
+      article {
+        background: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-content: center;
+        flex-wrap: wrap;
+        &.editTxt {
+          display: block;
+          position: fixed;
+          top: -100px;
+          right: 0;
+          width: 100vw;
+          height: 100vh;
+          z-index: 101;
+          background: #000;
+          padding: 100px;
+          > div {
+            width: 100%;
+            padding: 100px;
+            background-color: #fff;
+          }
+          input[type="text"],
+          textarea {
+            width: 100%;
+            padding: 6px 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-bottom: 1px solid #222;
+            @include txtStyle2($fz: $fontXL, $fw: 400, $c: #222);
+            background-color: #fff;
+            resize: none;
+          }
+        }
+        .btnSet {
+          display: flex;
+          align-items: center;
+
+          button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: $fontS;
+            margin-right: 30px;
+            border: none;
+            outline: none;
+            background: none;
+            cursor: pointer;
+            font-size: 30px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  .Community {
+    > .inner {
+      .inputBox {
+        input[type="text"],
+        textarea {
+          width: 100%;
+        }
+
+        .btnSet {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+
+          button {
+            width: 47%;
+            margin-right: 0px;
+          }
+        }
+      }
+
+      .showBox {
+        article {
+          background: #fff;
+          padding: 30px;
+          margin-bottom: 40px;
+          display: flex;
+          justify-content: space-between;
+          align-content: center;
+          flex-wrap: wrap;
+
+          .txt {
+            width: 100%;
+            margin-bottom: 30px;
+          }
+
+          .btnSet {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+            button {
+              margin-left: 0px;
+              width: 48%;
+            }
+          }
+
+          .editTxt {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+.NewsPopup {
+  display: block;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 101;
+  background: #000;
+  padding: 100px;
+  > div {
+    width: 100%;
+    height: 100%;
+    padding: 100px;
+    background-color: #fff;
+  }
+  input[type="text"],
+  textarea {
+    width: 100%;
+    padding: 6px 10px;
+    border: none;
+    border-bottom: 1px solid #222;
+    @include txtStyle2($fz: $fontXL, $fw: 400, $c: #222);
+    background-color: #fff;
+    resize: none;
+  }
+  .btnSet {
+    display: flex;
+    align-items: center;
+
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: $fontS;
+      margin-right: 30px;
+      border: none;
+      outline: none;
+      background: none;
+      cursor: pointer;
+      font-size: 30px;
+    }
+  }
+}

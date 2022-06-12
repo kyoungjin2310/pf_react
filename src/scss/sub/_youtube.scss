@@ -27,8 +27,6 @@
     .num {
       @include titleStyle($fz: $fontXXXL, $fw: 800, $c: #222, $lh: 1em);
       width: 10%;
-      &::after {
-      }
     }
 
     h3 {
