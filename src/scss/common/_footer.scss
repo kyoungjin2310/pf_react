@@ -9,12 +9,12 @@ footer {
     }
     p {
       float: right;
-      @include txtStyle($fz: $fontM, $c: #555, $fw: 600);
+      @include txtStyle($fz: $fontM, $c: #999, $fw: 600);
     }
     a {
       display: inline-block;
       vertical-align: top;
-      @include txtStyle($fz: $fontM, $c: #222, $fw: 600);
+      @include txtStyle($fz: $fontM, $c: #999, $fw: 600);
       &:hover {
         color: $maincolor;
       }

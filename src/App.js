@@ -12,6 +12,7 @@ import Join from "./components/sub/Join";
 import AboutRoutes from "./routes/AboutRoutes";
 import ContactRoutes from "./routes/ContactRoutes";
 import PrRoutes from "./routes/PrRoutes";
+import Work from "./components/sub/Work";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
       </Switch>
 
       <Route path="/about" component={AboutRoutes} />
+      <Route path="/work" component={Work} />
       <Route path="/news" component={News} />
       <Route path="/pr" component={PrRoutes} />
       <Route path="/contact" component={ContactRoutes} />
