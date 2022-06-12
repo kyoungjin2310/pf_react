@@ -29,12 +29,12 @@
         cursor: pointer;
         border: 1px solid #000;
         height: 30px;
-        width: 200px;
+        width: 130px;
         padding: 30px 60px;
         margin-left: 20px;
         transition: 0.5s;
         background-color: #fff;
-        @include titleStyle2($fz: $fontXL);
+        @include titleStyle2($fz: $fontL);
         &.on {
           background: #000;
           border: 1px solid #000;
