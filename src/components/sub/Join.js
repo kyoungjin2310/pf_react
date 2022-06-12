@@ -112,7 +112,13 @@ function Join() {
   }, [Err]);
 
   return (
-    <Layout name={"Join"} title={"Join Us"}>
+    <Layout
+      name={"Join"}
+      title={"Join Us"}
+      subTxt={
+        "Welcome to Neige! We build relationships Neige helps you create."
+      }
+    >
       <div className="formWrap">
         <form onSubmit={handleSubmit}>
           <fieldset>
@@ -286,10 +292,10 @@ function Join() {
                 {/* btnSet */}
                 <tr>
                   <th colSpan="2">
-                    <input type="reset" value="CANCEL" onClick={handleReset} />
+                    <input type="reset" value="Cancel" onClick={handleReset} />
                     <input
                       type="submit"
-                      value="SUBMIT"
+                      value="Submit"
                       onClick={() => setSubmit(true)}
                     />
                   </th>

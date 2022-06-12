@@ -42,7 +42,7 @@
           background: #000;
           border: 1px solid #000;
           transition: 0.5s;
-          @include titleStyle2($fz: $fontL, $c: #fff);
+          @include titleStyle2($fz: 1.3rem, $c: #fff);
           cursor: pointer;
         }
         input[type="reset"] {
