@@ -1,4 +1,15 @@
 .Gallery {
+  > .inner {
+    h2 {
+      &::before {
+        bottom: -100px;
+      }
+    }
+
+    .titleWrap {
+      padding-bottom: 270px;
+    }
+  }
   .loading {
     position: absolute;
     top: 0;
@@ -26,24 +37,34 @@
       float: left;
 
       .inner {
+        position: relative;
         width: 100%;
-        padding: 10px;
-        background: #fff;
-        box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
-
+        cursor: pointer;
+        overflow: hidden;
         .pic {
           width: 100%;
-          margin-bottom: 5px;
-
           img {
             width: 100%;
+            vertical-align: top;
           }
         }
-
-        h2 {
-          font: normal 14px/1.2 "open sans";
-          color: #777;
-          margin-bottom: 30px;
+        h3 {
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          padding: 15px 30px;
+          opacity: 0;
+          transform: translateY(100%);
+          background-color: rgba($color: #000, $alpha: 0.7);
+          @include txtStyle($fz: $fontL, $c: #fff, $fw: 500);
+          transition: 0.25s ease;
+        }
+        &:hover {
+          h3 {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
       }
     }

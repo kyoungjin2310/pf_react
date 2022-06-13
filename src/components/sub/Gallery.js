@@ -12,31 +12,42 @@ function Gallery() {
   const [Loading, setLoading] = useState(true);
   const [EnableClick, setEnableClick] = useState(true);
   const [Index, setIndex] = useState(0);
-  const masonryOptions = { transitionDuration: "0.5s" };
+  const masonryOptions = {
+    transitionDuration: "0.5s",
+  };
+  const depthTwo = [
+    { name: "Gallery", path: "/pr/gallery" },
+    { name: "Youtube", path: "/pr" },
+  ];
 
   const getFlickr = async (opt) => {
-    const key = "4612601b324a2fe5a1f5f7402bf8d87a";
-    const method_interest = "flickr.interestingness.getList";
+    const key = "f214f4f8200fa66223b5d3c4cc803bbd";
     const method_search = "flickr.photos.search";
-    const method_user = "flickr.people.getPhotos";
+    const method_user = "flickr.photosets.getPhotos";
+    const photoset_id = "72177720299755526";
+
     let url = "";
 
-    if (opt.type === "interest") {
-      url = `https://www.flickr.com/services/rest/?method=${method_interest}&api_key=${key}&per_page=${opt.count}&nojsoncallback=1&format=json`;
-    }
     if (opt.type === "search") {
-      url = `https://www.flickr.com/services/rest/?method=${method_search}&api_key=${key}&per_page=${opt.count}&nojsoncallback=1&format=json&tags=${opt.tags}`;
+      url = `https://www.flickr.com/services/rest/?method=${method_search}&api_key=${key}&user_id=${opt.user}&tags=${opt.tags}&format=json&nojsoncallback=1`;
+      await axios.get(url).then((json) => {
+        //만약 검색 결과가 없다면 경고창 띄우고 종료
+        if (json.data.photos.photo.length === 0)
+          return alert("해당검색어의 결과이미지 없습니다.");
+        setItems(json.data.photos.photo);
+        console.log(json.data.photos.photo);
+      });
     }
     if (opt.type === "user") {
-      url = `https://www.flickr.com/services/rest/?method=${method_user}&api_key=${key}&per_page=${opt.count}&nojsoncallback=1&format=json&user_id=${opt.user}`;
+      url = `https://www.flickr.com/services/rest/?method=${method_user}&photoset_id=${photoset_id}&api_key=${key}&per_page=${opt.count}&nojsoncallback=1&format=json&user_id=${opt.user}`;
+      await axios.get(url).then((json) => {
+        //만약 검색 결과가 없다면 경고창 띄우고 종료
+        if (json.data.photoset.photo.length === 0)
+          return alert("해당검색어의 결과이미지 없습니다.");
+        setItems(json.data.photoset.photo);
+        console.log(json.data.photoset.photo);
+      });
     }
-
-    await axios.get(url).then((json) => {
-      //만약 검색 결과가 없다면 경고창 띄우고 종료
-      if (json.data.photos.photo.length === 0)
-        return alert("해당검색어의 결과이미지 없습니다.");
-      setItems(json.data.photos.photo);
-    });
 
     setTimeout(() => {
       frame.current.classList.add("on");
@@ -60,8 +71,8 @@ function Gallery() {
       frame.current.classList.remove("on");
       getFlickr({
         type: "search",
-        count: 50,
         tags: result,
+        user: "192490779%40N06",
       });
     }
   };
@@ -70,34 +81,19 @@ function Gallery() {
     getFlickr({
       type: "user",
       count: 50,
-      user: "164021883@N04",
+      user: "192490779%40N06",
     });
   }, []);
 
   return (
     <>
-      <Layout name={"Gallery"}>
+      <Layout name={"Gallery"} title={"Gallery"} depthTwo={depthTwo}>
         {Loading && (
           <img
             className="loading"
             src={`${process.env.PUBLIC_URL}/img/loading.gif`}
           />
         )}
-        <button
-          onClick={() => {
-            if (EnableClick) {
-              setEnableClick(false);
-              setLoading(true);
-              frame.current.classList.remove("on");
-              getFlickr({
-                type: "interest",
-                count: 50,
-              });
-            }
-          }}
-        >
-          Interest Gallery
-        </button>
         <div className="searchBox">
           <input
             type="text"
@@ -124,41 +120,11 @@ function Gallery() {
                       }}
                     >
                       <img
-                        src={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_m.jpg`}
+                        src={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_b.jpg`}
                         alt={item.title}
                       />
                     </div>
-                    <h2>{item.title}</h2>
-                    <div className="profile">
-                      <img
-                        src={`http://farm${item.farm}.staticflickr.com/${item.server}/buddyicons/${item.owner}.jpg`}
-                        alt={item.owner}
-                        onError={(e) => {
-                          //해당 이미지요소의 소스이미지가 없어서 onError이벤트가 발생하면 src값을 대체이미지로 변경
-                          e.target.setAttribute(
-                            "src",
-                            "https://www.flickr.com/images/buddyicon.gif"
-                          );
-                        }}
-                      />
-                      <span
-                        onClick={(e) => {
-                          if (EnableClick) {
-                            setEnableClick(false);
-                            setLoading(true);
-                            frame.current.classList.remove("on");
-
-                            getFlickr({
-                              type: "user",
-                              count: 50,
-                              user: e.currentTarget.innerText,
-                            });
-                          }
-                        }}
-                      >
-                        {item.owner}
-                      </span>
-                    </div>
+                    <h3>{item.title}</h3>
                   </div>
                 </article>
               );

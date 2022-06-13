@@ -111,7 +111,7 @@ function News() {
           {Posts.map((post, idx) => {
             return (
               <>
-                <article className="list" key={idx + post.title}>
+                <article className="list" key={idx}>
                   <span className="num">
                     {idx + 1 < 10 ? `0${idx + 1}` : idx}
                   </span>
