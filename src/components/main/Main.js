@@ -8,9 +8,9 @@ const Main = () => {
   return (
     <>
       <Visual />
+      <MainNews />
       <Pics />
       <Vids />
-      <MainNews />
     </>
   );
 };
