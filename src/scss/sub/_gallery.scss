@@ -1,5 +1,37 @@
 .Gallery {
+  .searchBox {
+    width: 100%;
+    padding: 50px 10px;
+    font-size: 0;
+
+    .search {
+      width: calc(100% - 70px);
+      height: 70px;
+      line-height: 70px;
+      background-color: #fff;
+      padding-left: 30px;
+      @include txtStyle($fw: 500, $fz: $fontL, $c: #000);
+      border: none;
+    }
+    .btnSearch {
+      width: 70px;
+      height: 70px;
+      line-height: 70px;
+      font-size: $fontXXL;
+      background: #fff;
+      color: #000;
+      text-align: center;
+      cursor: pointer;
+      vertical-align: top;
+      border: none;
+      outline: none;
+      transition: background-color 0.25s ease;
+      &:hover {
+      }
+    }
+  }
   > .inner {
+    margin: 200px 90px 100px;
     h2 {
       &::before {
         bottom: -100px;
@@ -7,7 +39,9 @@
     }
 
     .titleWrap {
-      padding-bottom: 270px;
+      margin-left: 10px;
+      margin-right: 10px;
+      padding-bottom: 220px;
     }
   }
   .loading {
@@ -31,6 +65,7 @@
       display: block;
       clear: both;
     }
+
     article {
       width: 25%;
       padding: 10px;

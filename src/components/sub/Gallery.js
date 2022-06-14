@@ -4,6 +4,8 @@ import { useState, useEffect, useRef } from "react";
 import Masonry from "react-masonry-component";
 import Popup from "../common/Popup";
 import Loader from "../common/Loader";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 function Gallery() {
   const frame = useRef(null);
@@ -92,16 +94,19 @@ function Gallery() {
         {Loading && <Loader />}
         <div className="searchBox">
           <input
+            className="search"
             type="text"
             ref={input}
-            placeholder="검색어를 입력하세요"
+            placeholder='Please enter your search term. search for " package ".'
             onKeyUp={(e) => {
               if (e.key === "Enter") showSearch();
             }}
           />
-          <button onClick={showSearch}>SEARCH</button>
+          <button className="btnSearch" onClick={showSearch}>
+            <span className="h">SEARCH</span>
+            <FontAwesomeIcon icon={faMagnifyingGlass} />
+          </button>
         </div>
-
         <div className="frame" ref={frame}>
           <Masonry elementType={"div"} options={masonryOptions}>
             {Items.map((item, idx) => {
@@ -128,7 +133,6 @@ function Gallery() {
           </Masonry>
         </div>
       </Layout>
-
       {/* 컴포넌트자체를 useRef로 참조 */}
       <Popup ref={pop}>
         {Items.length !== 0 && (

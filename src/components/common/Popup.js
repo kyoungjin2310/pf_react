@@ -23,12 +23,14 @@ const Popup = forwardRef(({ children }, ref) => {
   //해당 컴포넌트에서 만들어지는 함수를 부모컴포넌트에서 사용가능하도록 외부로 반환가능
   useImperativeHandle(ref, () => {
     return {
+      //팝업열기 함수
       open: () => {
         open();
-      }, //팝업열기 함수
+      },
+      //팝업닫기 함수
       close: () => {
         close();
-      }, //팝업닫기 함수
+      },
     };
   });
 

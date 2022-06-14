@@ -3,7 +3,7 @@ import { useRef, useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import Popup from "../common/Popup";
-import NewsForm from "./item/NewsForm";
+
 function News() {
   const input = useRef(null);
   const textarea = useRef(null);
