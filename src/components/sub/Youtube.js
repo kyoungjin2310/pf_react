@@ -1,12 +1,12 @@
 import Layout from "../common/Layout";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Popup from "../common/Popup";
 
 function Youtube() {
   const [Vids, setVids] = useState([]);
-  const [Open, setOpen] = useState(false);
   const [Index, setIndex] = useState(0);
+  const pop = useRef(null);
   const depthTwo = [
     { name: "Gallery", path: "/pr/gallery" },
     { name: "Youtube", path: "/pr" },
@@ -16,7 +16,7 @@ function Youtube() {
     "This is Neige's video. Please click the video image in the list.";
 
   const handlePopup = (index) => {
-    setOpen(true);
+    pop.current.open();
     setIndex(index);
   };
 
@@ -65,14 +65,16 @@ function Youtube() {
           );
         })}
       </Layout>
-      {Open && (
-        <Popup setOpen={setOpen}>
-          <iframe
-            src={`https://www.youtube.com/embed/${Vids[Index].snippet.resourceId.videoId}`}
-            frameBorder="0"
-          ></iframe>
-        </Popup>
-      )}
+      <Popup ref={pop}>
+        <>
+          {Vids.length !== 0 && (
+            <iframe
+              src={`https://www.youtube.com/embed/${Vids[Index].snippet.resourceId.videoId}`}
+              frameBorder="0"
+            ></iframe>
+          )}
+        </>
+      </Popup>
     </>
   );
 }

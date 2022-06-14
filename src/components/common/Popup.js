@@ -1,5 +1,5 @@
 import { useEffect, useState, forwardRef, useImperativeHandle } from "react";
-
+import { motion, AnimatePresence } from "framer-motion";
 /*
 	단계1 - 기존의 컴포넌트 함수를 대입형(화살표) 함수로 변경
 	단계2 - 해당 화살표함수를 forwardRef()의 인수로 전달
@@ -36,16 +36,50 @@ const Popup = forwardRef(({ children }, ref) => {
 
   return (
     <>
-      {Open && (
-        <aside className="pop">
-          <div className="con">
-            {children}
-            <span className="close" onClick={close}>
-              close
-            </span>
-          </div>
-        </aside>
-      )}
+      <AnimatePresence>
+        {Open && (
+          <motion.aside
+            initial={{ y: "-100%" }}
+            animate={{
+              y: "0",
+              transition: { duration: 0.5, ease: [0.25, 1, 0.5, 1] },
+            }}
+            exit={{
+              y: "-100%",
+              transition: {
+                duration: 0.5,
+                delay: 0.8,
+                ease: [0.25, 1, 0.5, 1],
+              },
+            }}
+            className="pop"
+          >
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{
+                opacity: 1,
+                transition: { duration: 0.5, delay: 1 },
+              }}
+              exit={{ opacity: 0, transition: { duration: 0.3, delay: 0.5 } }}
+              className="con"
+            >
+              {children}
+              <motion.span
+                initial={{ opacity: 0 }}
+                animate={{
+                  opacity: 1,
+                  transition: { duration: 0.5, delay: 1 },
+                }}
+                exit={{ opacity: 0 }}
+                className="close"
+                onClick={close}
+              >
+                close
+              </motion.span>
+            </motion.div>
+          </motion.aside>
+        )}
+      </AnimatePresence>
     </>
   );
 });
