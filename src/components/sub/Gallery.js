@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState, useEffect, useRef } from "react";
 import Masonry from "react-masonry-component";
 import Popup from "../common/Popup";
+import Loader from "../common/Loader";
 
 function Gallery() {
   const frame = useRef(null);
@@ -88,12 +89,7 @@ function Gallery() {
   return (
     <>
       <Layout name={"Gallery"} title={"Gallery"} depthTwo={depthTwo}>
-        {Loading && (
-          <img
-            className="loading"
-            src={`${process.env.PUBLIC_URL}/img/loading.gif`}
-          />
-        )}
+        {Loading && <Loader />}
         <div className="searchBox">
           <input
             type="text"
