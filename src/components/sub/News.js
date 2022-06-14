@@ -2,12 +2,16 @@ import Layout from "../common/Layout";
 import { useRef, useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import Popup from "../common/Popup";
+import NewsForm from "./item/NewsForm";
 function News() {
   const input = useRef(null);
   const textarea = useRef(null);
   const inputEdit = useRef(null);
   const textareaEdit = useRef(null);
   const [Write, setWrite] = useState(false);
+  const editPop = useRef(null);
+  const createPop = useRef(null);
   const subTxt =
     "We make digital experiences that use technology to create emotions technology.";
   const getLocalData = () => {
@@ -31,6 +35,7 @@ function News() {
 
   //글 저장 함수
   const createPost = () => {
+    createPop.current.close();
     if (!input.current.value.trim() || !textarea.current.value.trim()) {
       resetPost();
       return alert("제목과 본문을 모두 입력하세요");
@@ -50,6 +55,8 @@ function News() {
 
   //실제 글 수정 함수
   const updatePost = (index) => {
+    editPop.current.open();
+
     setAllowed(true);
     if (!inputEdit.current.value.trim() || !textareaEdit.current.value.trim()) {
       resetPost();
@@ -78,10 +85,12 @@ function News() {
         return post;
       })
     );
+    editPop.current.open();
   };
 
   //출력모드 변경함수
   const disableUpdate = (index) => {
+    editPop.current.close();
     setAllowed(true);
     setPosts(
       Posts.map((post, idx) => {
@@ -94,6 +103,7 @@ function News() {
   //글쓰기창
   const onWrite = () => {
     setWrite(true);
+    createPop.current.open();
   };
 
   useEffect(() => {
@@ -130,55 +140,62 @@ function News() {
                     </button>
                   </div>
                 </article>
-                {post.enableUpdate && (
-                  <article className="editTxt" key={idx}>
-                    <div>
-                      <input
-                        type="text"
-                        defaultValue={post.title}
-                        ref={inputEdit}
-                      />
-                      <textarea
-                        cols="30"
-                        rows="5"
-                        ref={textareaEdit}
-                        defaultValue={post.content}
-                      ></textarea>
-                    </div>
-
-                    <div className="btnSet">
-                      <button onClick={() => disableUpdate(idx)}>CANCEL</button>
-                      <button onClick={() => updatePost(idx)}>SAVE</button>
-                    </div>
-                  </article>
-                )}
               </>
             );
           })}
         </div>
       </Layout>
       {Write && (
-        <article className="NewsPopup">
+        <Popup ref={createPop}>
           <div className="inputBox">
-            <input
-              type="text"
-              placeholder="Please enter a title."
-              ref={input}
-            />
+            <input type="text" placeholder="제목을 입력하세요" ref={input} />
+            <br />
             <textarea
               cols="30"
               rows="5"
-              placeholder="Please enter text."
+              placeholder="본문을 입력하세요"
               ref={textarea}
             ></textarea>
+            <br />
 
             <div className="btnSet">
               <button onClick={resetPost}>CANCEL</button>
               <button onClick={createPost}>WRITE</button>
             </div>
           </div>
-        </article>
+        </Popup>
       )}
+      {/* {Posts.map((post, idx) => {
+        return (
+          <>
+            {post.enableUpdate && (
+              <Popup ref={editPop} key={idx}>
+                <article>
+                  <div className="editTxt">
+                    <input
+                      type="text"
+                      defaultValue={post.title}
+                      ref={inputEdit}
+                    />
+                    <br />
+                    <textarea
+                      cols="30"
+                      rows="5"
+                      ref={textareaEdit}
+                      defaultValue={post.content}
+                    ></textarea>
+                  </div>
+
+                  <div className="btnSet">
+                    <button onClick={() => disableUpdate(idx)}>CANCEL</button>
+                    <button onClick={() => updatePost(idx)}>SAVE</button>
+                  </div>
+                </article>
+              </Popup>
+            )}
+          </>
+        );
+      })} */}
     </>
   );
 }
