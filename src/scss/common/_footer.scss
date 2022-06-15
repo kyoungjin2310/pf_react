@@ -1,9 +1,8 @@
 footer {
   width: 100%;
   .inner {
-    margin: 0px 100px;
+    padding: 50px 100px;
     position: relative;
-    padding: 50px 0;
     &::after {
       @include cb();
     }
@@ -25,8 +24,6 @@ footer {
 @media screen and (max-width: $tablet) {
   footer {
     .inner {
-      width: 100%;
-      padding: 50px 0;
     }
   }
 }

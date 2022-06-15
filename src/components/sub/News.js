@@ -3,6 +3,8 @@ import { useRef, useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import Popup from "../common/Popup";
+import { POSTS_WRITE_REQUEST } from "../../redux/types";
+import { useDispatch, useSelector } from "react-redux";
 
 function News() {
   const input = useRef(null);
@@ -18,9 +20,12 @@ function News() {
     const data = localStorage.getItem("post");
     return JSON.parse(data);
   };
+  const dispatch = useDispatch();
+  const news = useSelector((state) => state.NewsReducer.news);
 
   const [Posts, setPosts] = useState(getLocalData());
   const [Allowed, setAllowed] = useState(true);
+  const [EditIdx, setEditIdx] = useState(getLocalData());
 
   //글 초기화  함수
   const resetPost = () => {
@@ -82,10 +87,12 @@ function News() {
     setPosts(
       Posts.map((post, idx) => {
         if (idx === index) post.enableUpdate = true;
+
         return post;
       })
     );
-    editPop.current.open();
+    setEditIdx(Posts.filter((post, idx) => idx === index));
+    console.log(EditIdx);
   };
 
   //출력모드 변경함수
@@ -107,9 +114,9 @@ function News() {
   };
 
   useEffect(() => {
-    console.log(Posts);
     localStorage.setItem("post", JSON.stringify(Posts));
-  }, [Posts]);
+    console.log(news);
+  }, [Posts, EditIdx]);
 
   return (
     <>
@@ -120,31 +127,50 @@ function News() {
         <div className="showBox">
           {Posts.map((post, idx) => {
             return (
-              <>
-                <article className="list" key={idx}>
-                  <span className="num">
-                    {idx + 1 < 10 ? `0${idx + 1}` : idx}
-                  </span>
-                  <div className="txt">
-                    <h3 className="title">{post.title}</h3>
-                    <p>{post.content}</p>
-                  </div>
-                  <div className="btnSet">
-                    <button className="edit" onClick={() => enableUpdate(idx)}>
-                      <span className="h">EDIT</span>
-                      <FontAwesomeIcon icon={faPenToSquare} />
-                    </button>
-                    <button className="delete" onClick={() => deletePost(idx)}>
-                      <span className="h">DELETE</span>
-                      <FontAwesomeIcon icon={faTrashCan} />
-                    </button>
-                  </div>
-                </article>
-              </>
+              <article className="list" key={idx}>
+                <span className="num">
+                  {idx + 1 < 10 ? `0${idx + 1}` : idx}
+                </span>
+                <div className="txt">
+                  <h3 className="title">{post.title}</h3>
+                  <p>{post.content}</p>
+                </div>
+                <div className="btnSet">
+                  <button className="edit" onClick={() => enableUpdate(idx)}>
+                    <span className="h">EDIT</span>
+                    <FontAwesomeIcon icon={faPenToSquare} />
+                  </button>
+                  <button className="delete" onClick={() => deletePost(idx)}>
+                    <span className="h">DELETE</span>
+                    <FontAwesomeIcon icon={faTrashCan} />
+                  </button>
+                </div>
+              </article>
             );
           })}
         </div>
       </Layout>
+      {EditIdx && (
+        <Popup ref={editPop}>
+          <article>
+            <div className="editTxt">
+              <input type="text" defaultValue={EditIdx.title} ref={inputEdit} />
+              <br />
+              <textarea
+                cols="30"
+                rows="5"
+                ref={textareaEdit}
+                defaultValue={EditIdx.content}
+              ></textarea>
+            </div>
+
+            <div className="btnSet">
+              <button onClick={() => disableUpdate(EditIdx)}>CANCEL</button>
+              <button onClick={() => updatePost(EditIdx)}>SAVE</button>
+            </div>
+          </article>
+        </Popup>
+      )}
       {Write && (
         <Popup ref={createPop}>
           <div className="inputBox">
@@ -165,37 +191,6 @@ function News() {
           </div>
         </Popup>
       )}
-      {/* {Posts.map((post, idx) => {
-        return (
-          <>
-            {post.enableUpdate && (
-              <Popup ref={editPop} key={idx}>
-                <article>
-                  <div className="editTxt">
-                    <input
-                      type="text"
-                      defaultValue={post.title}
-                      ref={inputEdit}
-                    />
-                    <br />
-                    <textarea
-                      cols="30"
-                      rows="5"
-                      ref={textareaEdit}
-                      defaultValue={post.content}
-                    ></textarea>
-                  </div>
-
-                  <div className="btnSet">
-                    <button onClick={() => disableUpdate(idx)}>CANCEL</button>
-                    <button onClick={() => updatePost(idx)}>SAVE</button>
-                  </div>
-                </article>
-              </Popup>
-            )}
-          </>
-        );
-      })} */}
     </>
   );
 }

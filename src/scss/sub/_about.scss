@@ -6,13 +6,15 @@
     }
   }
   > .inner {
-    margin: 100px 0 0;
+    padding: 100px 0 0;
     h2 {
-      margin: 100px 100px 0;
       line-height: 1.2;
       &::before {
         bottom: -100px;
       }
+    }
+    .titleWrap {
+      padding: 100px 100px 0;
     }
     .depth2 {
       margin-top: 100px;
@@ -150,4 +152,7 @@
       max-height: 990px;
     }
   }
+}
+
+@media screen and (max-width: $tablet) {
 }

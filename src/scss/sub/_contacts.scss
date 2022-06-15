@@ -1,9 +1,7 @@
 .Contact {
   > .inner {
-    margin: 100px 0 0;
+    padding: 100px 0 0;
     h2 {
-      margin-top: 100px;
-      margin-left: 100px;
       &::before {
         bottom: -100px;
       }
@@ -13,6 +11,8 @@
       right: 100px;
     }
     .titleWrap {
+      padding-top: 100px;
+      padding-left: 100px;
       padding-bottom: 270px;
     }
   }

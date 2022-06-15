@@ -11,12 +11,12 @@ header {
   background-color: #000;
   .inner {
     height: 100px;
-    margin: 0px 100px;
+    padding: 0px 100px;
     position: relative;
     h1 {
       position: absolute;
       bottom: 20px;
-      left: 0px;
+      left: 100px;
 
       a {
         @include titleStyle($fz: $fontXXL, $c: $mainMenuColor);
@@ -26,7 +26,7 @@ header {
     #gnb {
       position: absolute;
       bottom: 10px;
-      right: 0px;
+      right: 100px;
 
       li {
         float: left;
@@ -42,7 +42,7 @@ header {
 
     .fa-bars {
       position: absolute;
-      bottom: 20px;
+      top: 40px;
       right: 30px;
       font-size: $fontXL;
       display: none;
@@ -76,16 +76,15 @@ header {
   header {
     .inner {
       width: 100%;
-
       h1 {
         left: 30px;
       }
-
       #gnb {
         display: none;
       }
       .fa-bars {
         display: block;
+        color: #fff;
       }
     }
   }

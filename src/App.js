@@ -12,17 +12,28 @@ import PrRoutes from "./routes/PrRoutes";
 import Work from "./components/sub/Work";
 import NewsRoutes from "./routes/NewsRoutes";
 
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch({
+      type: "FLICKR_START",
+      Opt: { type: "user", count: 50, user: "192490779%40N06" },
+    });
+    dispatch({ type: "YOUTUBE_START" });
+    dispatch({ type: "MEMBER_START" });
+    dispatch({ type: "POST_LOADING_REQUEST" });
+  }, []);
   return (
     <>
       <Switch>
         <Route exact path="/">
-          {/* 메인용 header */}
-          <Header type={"main"} />
           <Main />
         </Route>
 
-        {/* 서브용 header */}
         <Route path="/" render={() => <Header type={"sub"} />} />
       </Switch>
       <Route path="/about" component={AboutRoutes} />
