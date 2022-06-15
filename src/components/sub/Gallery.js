@@ -32,14 +32,6 @@ function Gallery() {
       setTimeout(() => setEnableClick(true), 1000);
     }, 1000);
   };
-
-  const showInterest = () => {
-    if (!EnableClick) return;
-    setLoading(true);
-    frame.current.classList.remove("on");
-    setOpt({ type: "interest", count: 50 });
-  };
-
   const showSearch = () => {
     if (!EnableClick) return;
     const tag = input.current.value.trim();

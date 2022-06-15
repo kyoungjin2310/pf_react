@@ -1,12 +1,9 @@
 import Layout from "../common/Layout";
-import axios from "axios";
-import { useEffect, useState, useRef } from "react";
+import { useState, useRef } from "react";
+import { useSelector } from "react-redux";
 import Popup from "../common/Popup";
 
 function Youtube() {
-  const [Vids, setVids] = useState([]);
-  const [Index, setIndex] = useState(0);
-  const pop = useRef(null);
   const depthTwo = [
     { name: "Gallery", path: "/pr/gallery" },
     { name: "Youtube", path: "/pr" },
@@ -15,22 +12,14 @@ function Youtube() {
   const subTxt =
     "This is Neige's video. Please click the video image in the list.";
 
+  const pop = useRef(null);
+  const Vids = useSelector((store) => store.youtubeReducer.youtube);
+  const [Index, setIndex] = useState(0);
+
   const handlePopup = (index) => {
     pop.current.open();
     setIndex(index);
   };
-
-  const fetchYoutube = () => {
-    const key = "AIzaSyC3omc-8Wk_cZwj-pkpAlVSxJizrP0IL9k";
-    const playlist = "PLTncuNK6QrZME9vBo7RMvsNoxAPUG8LUw";
-    const num = 8;
-    const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&key=${key}&playlistId=${playlist}&maxResults=${num}`;
-    axios.get(url).then((json) => {
-      setVids(json.data.items);
-    });
-  };
-
-  useEffect(fetchYoutube, []);
 
   return (
     <>
