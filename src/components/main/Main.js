@@ -10,9 +10,9 @@ const Main = () => {
     <>
       <Header />
       <Visual />
-      <MainNews />
       <Pics />
       <Vids />
+      <MainNews />
     </>
   );
 };

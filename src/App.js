@@ -14,6 +14,7 @@ import NewsRoutes from "./routes/NewsRoutes";
 
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import * as types from "./redux/actionType";
 
 function App() {
   const dispatch = useDispatch();

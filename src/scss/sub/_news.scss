@@ -26,6 +26,7 @@
       border-bottom: none;
     }
   }
+
   > .inner {
     padding: 200px 0 0;
     h2 {
@@ -63,37 +64,6 @@
     }
     .titleWrap {
       padding-bottom: 270px;
-    }
-
-    .inputBox {
-      width: 100%;
-      padding: 50px 100px;
-      margin-bottom: 50px;
-      background-color: #fff;
-
-      input[type="text"],
-      textarea {
-        width: 50%;
-        padding: 8px 10px;
-        border: 1px solid #aaa;
-        margin-bottom: 20px;
-        resize: none;
-      }
-
-      .btnSet {
-        button {
-          width: 150px;
-          height: 30px;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-          border: none;
-          background: #555;
-          color: #fff;
-          cursor: pointer;
-          margin-right: 20px;
-        }
-      }
     }
 
     .showBox {
@@ -151,6 +121,97 @@
         }
       }
     }
+  }
+}
+//news
+.newsList {
+  max-width: 800px;
+  height: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  > div {
+    padding: 30px 50px;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  .newsListTitle {
+    @include titleStyle2($fz: 3rem);
+    margin-bottom: 30px;
+  }
+  .txtTitle {
+    display: inline-block;
+    @include titleStyle($fz: $fontXL, $fw: 600, $lh: 1.3);
+    padding-bottom: 10px;
+    border-bottom: 1px solid #000;
+    margin-bottom: 20px;
+  }
+  .txt {
+    @include txtStyle2($fz: $fontM, $lh: 1.5, $c: #666);
+    overflow: auto;
+  }
+}
+//news input box
+.inputBox {
+  .inputBoxTitle {
+    @include titleStyle2($fz: 3rem);
+  }
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 50px 20px;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  display: flex;
+  justify-content: space-evenly;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
+  > div {
+    width: 100%;
+  }
+  .btnSet {
+    display: flex;
+    align-items: center;
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      @include titleStyle2($fz: $fontL);
+      width: 130px;
+      padding: 10px 0;
+      background-color: #fff;
+      text-align: center;
+      margin-right: 20px;
+      border: 1px solid #000;
+      &.saveBtn {
+        background-color: #000;
+        color: #fff;
+      }
+    }
+  }
+  input[type="text"],
+  textarea {
+    width: 100%;
+    padding: 6px 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-bottom: 1px solid #222;
+    background-color: #fff;
+    resize: none;
+  }
+  input[type="text"] {
+    @include titleStyle($fz: $fontXL, $fw: 600, $lh: 1.3);
+  }
+  textarea {
+    height: 200px;
+    @include txtStyle2($fz: $fontM, $lh: 1.5, $c: #666);
   }
 }
 

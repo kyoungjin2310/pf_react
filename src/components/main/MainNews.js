@@ -1,30 +1,31 @@
-import { faArrowAltCircleLeft } from "@fortawesome/free-regular-svg-icons";
 import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 function MainNews() {
+  const { news } = useSelector((state) => state.newsReducer);
   //로컬저장소에서 데이터를 받아와서 json형태로 반환
   const getLocalData = () => {
     const data = localStorage.getItem("post");
-    const dummyPosts = [
-      { title: "Hello5", content: "Here comes description in detail." },
-      { title: "Hello4", content: "Here comes description in detail." },
-      { title: "Hello3", content: "Here comes description in detail." },
-      { title: "Hello2", content: "Here comes description in detail." },
-      { title: "Hello1", content: "Here comes description in detail." },
-    ];
 
     if (data) {
       return JSON.parse(data);
     } else {
-      return dummyPosts;
+      return news;
     }
   };
 
   const [Posts] = useState(getLocalData());
 
   useEffect(() => {
-    localStorage.setItem("post", JSON.stringify(Posts));
-  }, []);
+    if (
+      !localStorage.getItem("post") ||
+      localStorage.getItem("post").length <= 2
+    ) {
+      localStorage.setItem("post", JSON.stringify(news));
+    }
+    console.log(localStorage.getItem("post"));
+  }, [news]);
+
   return (
     <section id="news">
       {Posts.map((post, idx) => {

@@ -36,7 +36,10 @@
   color: $c;
 }
 ::placeholder {
-  @include txtStyle($fw: 500, $fz: $fontL, $c: #555);
+  @include txtStyle($fw: 500, $fz: $fontXL, $c: #555);
+}
+textarea::placeholder {
+  font-size: $fontL;
 }
 
 @mixin txtStyle2($fz: $fontS, $fw: 400, $lh: 1.5, $c: #999, $ff: $txtFont) {

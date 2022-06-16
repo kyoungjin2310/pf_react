@@ -17,7 +17,7 @@ export const FLICKR = {
 };
 
 export const NEWS = {
-  start: "FLICKR_START",
-  success: "FLICKR_SUCCESS",
-  err: "FLICKR_ERROR",
+  start: "NEWS_START",
+  success: "NEWS_SUCCESS",
+  err: "NEWS_ERROR",
 };

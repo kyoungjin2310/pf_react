@@ -1,5 +1,4 @@
 import Layout from "../common/Layout";
-import axios from "axios";
 import { useEffect, useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Masonry from "react-masonry-component";
@@ -36,7 +35,7 @@ function Gallery() {
     if (!EnableClick) return;
     const tag = input.current.value.trim();
     input.current.value = "";
-    if (!tag) return alert("검색어를 입력하세요");
+    if (!tag) return alert("Please enter your search term.");
 
     setLoading(true);
     frame.current.classList.remove("on");
