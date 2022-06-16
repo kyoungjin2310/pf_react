@@ -1,5 +1,6 @@
 import axios from "axios";
 
+//flickr
 export const fetchFlickr = async (opt) => {
   const key = "f214f4f8200fa66223b5d3c4cc803bbd";
   const method_search = "flickr.photos.search";
@@ -23,6 +24,7 @@ export const fetchFlickr = async (opt) => {
   return result;
 };
 
+//youtube
 export const fetchYoutube = async () => {
   const key = "AIzaSyC3omc-8Wk_cZwj-pkpAlVSxJizrP0IL9k";
   const playlist = "PLTncuNK6QrZME9vBo7RMvsNoxAPUG8LUw";
@@ -32,29 +34,16 @@ export const fetchYoutube = async () => {
   return await axios.get(url);
 };
 
+//member
 export const fetchMember = async () => {
   const url = `${process.env.PUBLIC_URL}/DB/members.json`;
 
   return await axios.get(url);
 };
 
+//news
 export const fetchNews = async () => {
   const url = `${process.env.PUBLIC_URL}/DB/news.json`;
 
   return await axios.get(url);
-};
-
-export const fetchLocalGet = async () => {
-  const url = localStorage.getItem;
-
-  return await axios.get(url);
-};
-
-export const fetchLocalSet = async (payload) => {
-  const url = localStorage.setItem;
-  const result = localStorage.setItem(
-    "post",
-    JSON.stringify(await axios.post(url, payload))
-  );
-  return result;
 };

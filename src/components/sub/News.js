@@ -3,8 +3,6 @@ import { useRef, useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import Popup from "../common/Popup";
-import { POSTS_WRITE_REQUEST } from "../../redux/types";
-import { useDispatch, useSelector } from "react-redux";
 
 function News() {
   const input = useRef(null);
@@ -20,16 +18,13 @@ function News() {
     const data = localStorage.getItem("post");
     return JSON.parse(data);
   };
-  const dispatch = useDispatch();
-  const news = useSelector((state) => state.NewsReducer.news);
 
   const [Posts, setPosts] = useState(getLocalData());
   const [Allowed, setAllowed] = useState(true);
-  const [EditIdx, setEditIdx] = useState(getLocalData());
+  const [EditIdx, setEditIdx] = useState(0);
 
   //글 초기화  함수
   const resetPost = () => {
-    setWrite(false);
     input.current.value = "";
     textarea.current.value = "";
     if (inputEdit.current) {
@@ -62,7 +57,6 @@ function News() {
   const updatePost = (index) => {
     editPop.current.open();
 
-    setAllowed(true);
     if (!inputEdit.current.value.trim() || !textareaEdit.current.value.trim()) {
       resetPost();
       return alert("수정할 제목과 본문을 모두 입력하세요");
@@ -82,8 +76,7 @@ function News() {
 
   //글 수정모드 변경함수
   const enableUpdate = (index) => {
-    if (!Allowed) return;
-    setAllowed(false);
+    editPop.current.open();
     setPosts(
       Posts.map((post, idx) => {
         if (idx === index) post.enableUpdate = true;
@@ -91,8 +84,8 @@ function News() {
         return post;
       })
     );
-    setEditIdx(Posts.filter((post, idx) => idx === index));
-    console.log(EditIdx);
+    setEditIdx(index);
+    console.log(Posts[EditIdx]);
   };
 
   //출력모드 변경함수
@@ -110,12 +103,10 @@ function News() {
   //글쓰기창
   const onWrite = () => {
     setWrite(true);
-    createPop.current.open();
   };
 
   useEffect(() => {
     localStorage.setItem("post", JSON.stringify(Posts));
-    console.log(news);
   }, [Posts, EditIdx]);
 
   return (
@@ -150,17 +141,21 @@ function News() {
           })}
         </div>
       </Layout>
-      {EditIdx && (
+      {Posts[EditIdx].enableUpdate && (
         <Popup ref={editPop}>
           <article>
             <div className="editTxt">
-              <input type="text" defaultValue={EditIdx.title} ref={inputEdit} />
+              <input
+                type="text"
+                defaultValue={Posts[EditIdx].title}
+                ref={inputEdit}
+              />
               <br />
               <textarea
                 cols="30"
                 rows="5"
                 ref={textareaEdit}
-                defaultValue={EditIdx.content}
+                defaultValue={Posts[EditIdx].content}
               ></textarea>
             </div>
 

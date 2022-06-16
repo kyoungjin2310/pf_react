@@ -20,12 +20,12 @@ function App() {
 
   useEffect(() => {
     dispatch({
-      type: "FLICKR_START",
+      type: types.FLICKR.start,
       Opt: { type: "user", count: 50, user: "192490779%40N06" },
     });
-    dispatch({ type: "YOUTUBE_START" });
-    dispatch({ type: "MEMBER_START" });
-    dispatch({ type: "POST_LOADING_REQUEST" });
+    dispatch({ type: types.MEMBER.start });
+    dispatch({ type: types.YOUTUBE.start });
+    dispatch({ type: types.NEWS.start });
   }, []);
   return (
     <>

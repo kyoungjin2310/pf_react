@@ -1,5 +1,4 @@
 import { combineReducers } from "redux";
-import { NewsReducer } from "./postReducer";
 
 const memberReducer = (state = { members: [] }, action) => {
   switch (action.type) {
@@ -10,6 +9,22 @@ const memberReducer = (state = { members: [] }, action) => {
       return { ...state, members: action.payload };
 
     case "MEMBER_ERROR":
+      return { ...state, error: action.payload };
+
+    default:
+      return state;
+  }
+};
+
+const newsReducer = (state = { news: [] }, action) => {
+  switch (action.type) {
+    case "NEWS_START":
+      return { ...state };
+
+    case "NEWS_SUCCESS":
+      return { ...state, news: action.payload };
+
+    case "NEWS_ERROR":
       return { ...state, error: action.payload };
 
     default:
@@ -53,6 +68,6 @@ const reducers = combineReducers({
   memberReducer,
   youtubeReducer,
   flickrReducer,
-  NewsReducer,
+  newsReducer,
 });
 export default reducers;
