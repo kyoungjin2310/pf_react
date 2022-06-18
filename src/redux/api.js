@@ -1,5 +1,4 @@
 import axios from "axios";
-
 //flickr
 export const fetchFlickr = async (opt) => {
   const key = "f214f4f8200fa66223b5d3c4cc803bbd";
@@ -43,7 +42,8 @@ export const fetchMember = async () => {
 
 //news
 export const fetchNews = async () => {
-  const url = `${process.env.PUBLIC_URL}/DB/news.json`;
+  const url = await axios.get(`${process.env.PUBLIC_URL}/DB/news.json`);
+  await axios.post(localStorage.setItem("post", JSON.stringify(url.data.news)));
 
-  return await axios.get(url);
+  return await axios.get(localStorage.getItem("post"));
 };

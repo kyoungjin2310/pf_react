@@ -12,12 +12,21 @@ import PrRoutes from "./routes/PrRoutes";
 import Work from "./components/sub/Work";
 import NewsRoutes from "./routes/NewsRoutes";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import * as types from "./redux/actionType";
 
 function App() {
   const dispatch = useDispatch();
+  const getLocalData = () => {
+    const data = localStorage.getItem("post");
+
+    if (data) {
+      return JSON.parse(data);
+    } else {
+      dispatch({ type: types.NEWS.start });
+    }
+  };
 
   useEffect(() => {
     dispatch({
@@ -26,7 +35,7 @@ function App() {
     });
     dispatch({ type: types.MEMBER.start });
     dispatch({ type: types.YOUTUBE.start });
-    dispatch({ type: types.NEWS.start });
+    getLocalData();
   }, []);
   return (
     <>

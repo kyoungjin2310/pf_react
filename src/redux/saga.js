@@ -47,8 +47,9 @@ export function* callMember() {
 export function* returnNews() {
   try {
     const response = yield call(fetchNews);
-    console.log(response.data.news, "news");
+    console.log(response.data, "news");
     yield put({ type: types.NEWS.success, payload: response.data.news });
+    console.log(response.data, "news2");
   } catch (err) {
     yield put({ type: types.NEWS.err, payload: err });
   }

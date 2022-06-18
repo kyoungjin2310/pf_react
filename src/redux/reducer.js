@@ -20,13 +20,12 @@ const newsReducer = (state = { news: [] }, action) => {
   switch (action.type) {
     case "NEWS_START":
       return { ...state };
-
     case "NEWS_SUCCESS":
       return { ...state, news: action.payload };
-
     case "NEWS_ERROR":
       return { ...state, error: action.payload };
-
+    case "NEWS_REMOVE":
+      return state.filter((items) => items.id !== action.id);
     default:
       return state;
   }

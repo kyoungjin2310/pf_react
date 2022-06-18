@@ -16,7 +16,6 @@ function News() {
   const subTxt =
     "We make digital experiences that use technology to create emotions technology.";
   const { news } = useSelector((state) => state.newsReducer);
-
   const getLocalData = () => {
     const data = localStorage.getItem("post");
     return JSON.parse(data);
@@ -26,7 +25,7 @@ function News() {
   const [EditIdx, setEditIdx] = useState(0);
   useEffect(() => {
     localStorage.setItem("post", JSON.stringify(Posts));
-    console.log(Posts, "Posts");
+    console.log(news.length === 0);
   }, [Posts]);
 
   //게시글 보기
