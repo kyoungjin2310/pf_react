@@ -3,7 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { path } from "../../api";
 
-function Team({ match }) {
+function Team() {
   const [Members, setMembers] = useState([]);
   const depthTwo = [
     { name: "About Us", path: `/about` },

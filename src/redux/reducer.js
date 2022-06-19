@@ -16,21 +16,6 @@ const memberReducer = (state = { members: [] }, action) => {
   }
 };
 
-const newsReducer = (state = { news: [] }, action) => {
-  switch (action.type) {
-    case "NEWS_START":
-      return { ...state };
-    case "NEWS_SUCCESS":
-      return { ...state, news: action.payload };
-    case "NEWS_ERROR":
-      return { ...state, error: action.payload };
-    case "NEWS_REMOVE":
-      return state.filter((items) => items.id !== action.id);
-    default:
-      return state;
-  }
-};
-
 const youtubeReducer = (state = { youtube: [] }, action) => {
   switch (action.type) {
     case "YOUTUBE_START":
@@ -67,6 +52,5 @@ const reducers = combineReducers({
   memberReducer,
   youtubeReducer,
   flickrReducer,
-  newsReducer,
 });
 export default reducers;

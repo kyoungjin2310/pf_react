@@ -39,10 +39,3 @@ export const fetchMember = async () => {
 
   return await axios.get(url);
 };
-
-//news
-export const fetchNews = async () => {
-  const url = await axios.get(`${process.env.PUBLIC_URL}/DB/news.json`);
-  await axios.post(localStorage.setItem("post", JSON.stringify(url.data.news)));
-  return await axios.get(localStorage.getItem("post"));
-};
