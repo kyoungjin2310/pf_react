@@ -1,29 +1,29 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 
 const Top = () => {
-  const top = useRef();
-  const topBace = 600;
+  const topBace = 700;
+  const [Top, setTop] = useState(false);
   const activation = () => {
     const scroll = window.scrollY;
     if (scroll >= window.innerHeight - topBace) {
-      top.current.classList.add("on");
+      setTop(true);
     } else {
-      top.current.classList.remove("on");
+      setTop(false);
     }
   };
 
   useEffect(() => {
     window.addEventListener("scroll", activation);
+    console.log(Top, "top");
     return () => {
       window.removeEventListener("scroll", activation);
     };
   }, []);
   return (
     <button
-      className="top"
-      ref={top}
+      className={Top ? "top on" : "top"}
       onClick={() => {
         window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
       }}

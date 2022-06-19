@@ -17,12 +17,12 @@ function Visual() {
   };
   const prev = () => {
     setElNum((ElNum) =>
-      ElNum == 0 ? (ElNum = visualTitle.length - 1) : --ElNum
+      ElNum === 0 ? (ElNum = visualTitle.length - 1) : --ElNum
     );
   };
   const next = () => {
     setElNum((ElNum) =>
-      ElNum == visualTitle.length - 1 ? (ElNum = 0) : ++ElNum
+      ElNum === visualTitle.length - 1 ? (ElNum = 0) : ++ElNum
     );
   };
   useEffect(() => {
