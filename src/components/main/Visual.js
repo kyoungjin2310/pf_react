@@ -55,10 +55,14 @@ function Visual() {
           >
             <div className="inner">
               <h2 className="title">{item.title}</h2>
+              <h3 className="subTitle">{item.subTitle}</h3>
               <div className="pic">
                 <img src={`${item.img}`} alt={`${item.title}`} />
               </div>
-              <figcaption className="txt">{item.txt}</figcaption>
+              <figcaption className="txt">
+                <h4 className="subTitle2">{item.subTitle}</h4>
+                <p>{item.txt}</p>
+              </figcaption>
             </div>
           </div>
         );

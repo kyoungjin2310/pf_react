@@ -24,11 +24,9 @@ function Vids() {
             // when window width is >= 320px
             320: {
               slidesPerView: 1,
-              spaceBetween: 20,
             },
             1180: {
               slidesPerView: 3,
-              spaceBetween: 40,
             },
           }}
         >
@@ -38,14 +36,14 @@ function Vids() {
             if (idx < 8) {
               return (
                 <SwiperSlide key={idx}>
-                  <div className="inner">
-                    <div
-                      className="pic"
-                      onClick={() => {
-                        setIndex(idx);
-                        pop.current.open();
-                      }}
-                    >
+                  <div
+                    className="inner"
+                    onClick={() => {
+                      setIndex(idx);
+                      pop.current.open();
+                    }}
+                  >
+                    <div className="pic">
                       <img
                         src={vid.snippet.thumbnails.standard.url}
                         alt={tit}

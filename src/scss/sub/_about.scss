@@ -10,7 +10,7 @@
     h2 {
       line-height: 1.2;
       &::before {
-        bottom: -100px;
+        display: none;
       }
     }
     .titleWrap {

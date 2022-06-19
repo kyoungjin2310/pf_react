@@ -16,15 +16,34 @@
   }
 
   .list {
+    position: relative;
     border-bottom: 1px solid #aaa;
     padding: 50px 100px;
     justify-content: space-between;
     align-content: center;
     flex-wrap: wrap;
     align-items: center;
-    &:last-child {
-      border-bottom: none;
+    &:first-child {
+      border-top: 1px solid #222;
     }
+    &:last-child {
+      border-bottom: 1px solid #222;
+    }
+
+    // &::after {
+    //   @include pseudo($t: 0, $l: 0);
+    //   width: 100%;
+    //   height: 100%;
+    //   transform: scale(1, 0);
+    //   background-color: #fff;
+    //   transition: 0.2s ease;
+    //   mix-blend-mode: difference;
+    // }
+    // &:hover {
+    //   &::after {
+    //     transform: scale(1, 1);
+    //   }
+    // }
   }
 
   > .inner {

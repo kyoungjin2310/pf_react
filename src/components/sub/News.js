@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import Popup from "../common/Popup";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
 function News() {
   const input = useRef(null);
   const textarea = useRef(null);
@@ -15,7 +14,6 @@ function News() {
   const createPop = useRef(null);
   const subTxt =
     "We make digital experiences that use technology to create emotions technology.";
-  const { news } = useSelector((state) => state.newsReducer);
   const getLocalData = () => {
     const data = localStorage.getItem("post");
     return JSON.parse(data);
@@ -25,7 +23,6 @@ function News() {
   const [EditIdx, setEditIdx] = useState(0);
   useEffect(() => {
     localStorage.setItem("post", JSON.stringify(Posts));
-    console.log(news.length === 0);
   }, [Posts]);
 
   //게시글 보기
@@ -116,9 +113,6 @@ function News() {
   const onWrite = () => {
     createPop.current.open();
   };
-  useEffect(() => {
-    console.log(news);
-  }, [EditIdx]);
 
   return (
     <>
@@ -135,6 +129,7 @@ function News() {
                 </span>
                 <div className="txt">
                   <Link
+                    className="link"
                     to={`${idx}`}
                     onClick={(e) => {
                       onShow(e, idx);
