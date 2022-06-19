@@ -41,6 +41,7 @@
     left: 100px;
     bottom: 200px;
     @include titleStyle($fw: 400, $c: #aaa, $lh: 1.3, $fz: $fontL);
+  }
   .txt {
     position: absolute;
     right: 0;
