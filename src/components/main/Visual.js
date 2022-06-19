@@ -65,7 +65,7 @@ function Visual() {
       })}
       <div className="cursor" ref={cursor}></div>
       <div className="num">
-        <strong>{ElNum < 10 ? `0${ElNum + 1}` : ElNum + 1}</strong>
+        <strong>{ElNum + 1 < 10 ? `0${ElNum + 1}` : ElNum + 1}</strong>
         <span>
           {visualTitle.length < 10
             ? `0${visualTitle.length}`
