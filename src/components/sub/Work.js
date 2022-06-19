@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import { workList } from "../../api/data";
+import { workList } from "../../asset/data";
 import Top from "../common/Top";
 
 const Work = () => {

@@ -8,7 +8,7 @@ import {
   aboutExplanList,
   aboutExplanLastList,
   aboutExplanTitleLast,
-} from "../../api/data";
+} from "../../asset/data";
 
 const About = () => {
   const depthTwo = [
