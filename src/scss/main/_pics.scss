@@ -1,9 +1,60 @@
-#pic {
-	width: 100%;
-	height: 100vh;
-	background: lightgoldenrodyellow;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 10vw;
+#gallery {
+  width: 100%;
+  margin-top: 200px;
+  padding: 0 100px;
+  margin-bottom: 400px;
+  .inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 200px;
+    &.even {
+      flex-direction: row-reverse;
+      .txtTitle {
+        text-align: left;
+        padding-left: 50px;
+        padding-right: 0;
+      }
+    }
+    .pic {
+      cursor: pointer;
+      &:hover {
+        img {
+          clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        }
+      }
+    }
+    img {
+      width: 400px;
+      clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+      transition: clip-path 1s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+  }
+  .title {
+    position: relative;
+    text-align: center;
+    margin-bottom: 500px;
+    @include titleStyle($fw: 400, $c: #fff, $ff: $subTitle, $lh: 1.3);
+    &::after {
+      @include pseudo($t: 50%, $l: 50%);
+      width: 1px;
+      height: 200px;
+      margin-left: -1px;
+      margin-top: 200px;
+      background-color: rgba($color: #fff, $alpha: 0.5);
+    }
+  }
+  .txtTitle {
+    max-width: 300px;
+    padding-right: 50px;
+    margin-bottom: 20px;
+    text-align: right;
+    @include titleStyle($fw: 400, $c: #fff, $lh: 1.3, $fz: $fontXXL);
+  }
+  .txt {
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto 200px;
+    @include txtStyle2($fz: $fontM, $c: #999, $lh: 1.8);
+  }
 }

@@ -1,9 +1,50 @@
 #vids {
-	width: 100%;
-	height: 100vh;
-	background: lightsteelblue;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 10vw;
+  width: 100%;
+  height: 100vh;
+  margin-top: 100px;
+  padding-left: 100px;
+  margin-bottom: 100px;
+  .swiper {
+    width: 100%;
+    padding-bottom: 100px;
+    .swiper-pagination {
+      top: auto;
+      bottom: 0;
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+    .swiper-pagination-progressbar-fill {
+      background-color: #fff;
+    }
+  }
+  .inner {
+    .pic {
+      cursor: pointer;
+      overflow: hidden;
+      img {
+        width: 100%;
+      }
+    }
+  }
+  .title {
+    padding-right: 100px;
+    margin-bottom: 100px;
+    @include titleStyle(
+      $fw: 400,
+      $c: #fff,
+      $ff: $subTitle,
+      $lh: 1.3,
+      $fz: 5.5rem
+    );
+  }
+  .txtTitle {
+    margin-bottom: 20px;
+    @include titleStyle($fw: 400, $c: #fff, $lh: 1.3, $fz: $fontXL);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .txt {
+    @include txtStyle2($fz: $fontM, $c: #999, $lh: 1.8);
+    @include ellipsis(2, 1.8);
+  }
 }
