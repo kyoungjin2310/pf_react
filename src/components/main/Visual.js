@@ -3,10 +3,12 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { visualTitle } from "../../asset/mainData";
+import Title from "../common/styled/Title/Title";
 
 function Visual() {
   const cursor = useRef(null);
   const frame = useRef(null);
+  const title = useRef(null);
   let isCursor = false;
   const [ElNum, setElNum] = useState(0);
   const mouseMove = (e) => {
@@ -16,14 +18,20 @@ function Visual() {
     cursor.current.style.top = clientY - 15 + "px";
   };
   const prev = () => {
-    setElNum((ElNum) =>
-      ElNum === 0 ? (ElNum = visualTitle.length - 1) : --ElNum
-    );
+    title.current.hidden();
+    setTimeout(() => {
+      setElNum((ElNum) =>
+        ElNum === 0 ? (ElNum = visualTitle.length - 1) : --ElNum
+      );
+    }, 1000);
   };
   const next = () => {
-    setElNum((ElNum) =>
-      ElNum === visualTitle.length - 1 ? (ElNum = 0) : ++ElNum
-    );
+    title.current.hidden();
+    setTimeout(() => {
+      setElNum((ElNum) =>
+        ElNum === visualTitle.length - 1 ? (ElNum = 0) : ++ElNum
+      );
+    }, 1000);
   };
   useEffect(() => {
     window.addEventListener("mousemove", mouseMove);
@@ -43,28 +51,32 @@ function Visual() {
     <figure id="visual" className="myScroll" ref={frame} onDrag={mouseMove}>
       {visualTitle.map((item, idx) => {
         return (
-          <div
-            className={idx === ElNum ? "visual active" : "visual"}
-            key={idx}
-            onMouseEnter={() =>
-              (cursor.current.style = ` transform: translate(-50%, -50%)  scale(3) `)
-            }
-            onMouseLeave={() =>
-              (cursor.current.style = ` transform: translate(-50%, -50%)  scale(4.2) `)
-            }
-          >
-            <div className="inner">
-              <h2 className="title">{item.title}</h2>
-              <h3 className="subTitle">{item.subTitle}</h3>
-              <div className="pic">
-                <img src={`${item.img}`} alt={`${item.title}`} />
+          idx === ElNum && (
+            <div
+              className={idx === ElNum ? "visual active" : "visual"}
+              key={idx}
+              onMouseEnter={() =>
+                (cursor.current.style = ` transform: translate(-50%, -50%)  scale(3) `)
+              }
+              onMouseLeave={() =>
+                (cursor.current.style = ` transform: translate(-50%, -50%)  scale(4.2) `)
+              }
+            >
+              <div className="inner">
+                <h2 className="title">
+                  <Title ref={title} aniTitle={item.title} />
+                </h2>
+                <h3 className="subTitle">{item.subTitle}</h3>
+                <div className="pic">
+                  <img src={`${item.img}`} alt={`${item.title}`} />
+                </div>
+                <figcaption className="txt">
+                  <h4 className="subTitle2">{item.subTitle}</h4>
+                  <p>{item.txt}</p>
+                </figcaption>
               </div>
-              <figcaption className="txt">
-                <h4 className="subTitle2">{item.subTitle}</h4>
-                <p>{item.txt}</p>
-              </figcaption>
             </div>
-          </div>
+          )
         );
       })}
       <div className="cursor" ref={cursor}></div>
