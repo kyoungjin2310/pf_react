@@ -38,10 +38,16 @@
 ::placeholder {
   @include txtStyle($fw: 500, $fz: $fontXL, $c: #555);
 }
+
 textarea::placeholder {
   font-size: $fontL;
 }
 
+@media screen and (max-width: $tablet) {
+  ::placeholder {
+    font-size: $fontL;
+  }
+}
 @mixin txtStyle2($fz: $fontS, $fw: 400, $lh: 1.5, $c: #999, $ff: $txtFont) {
   font-family: $ff;
   font-size: $fz;

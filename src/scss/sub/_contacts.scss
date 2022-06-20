@@ -96,19 +96,42 @@
 
 @media screen and (max-width: $tablet) {
   .Contact {
+    > .inner {
+      padding: 100px 0 0;
+      .depth2 {
+        right: 30px;
+      }
+      h2 {
+        padding-bottom: 100px;
+        margin-bottom: 60px;
+        &::before {
+          bottom: -10px;
+        }
+      }
+      .titleWrap {
+        padding: 100px 30px 50px;
+        margin-bottom: 0;
+        p {
+          position: static;
+        }
+      }
+    }
     article {
-      h3 {
-        width: 47%;
+      padding: 50px 30px;
+      &.contactWrap {
+        padding: 70px 30px 100px;
+        .svg {
+          margin: 50px 0 30px;
+          width: 80px;
+          height: 80px;
+        }
+      }
+      .contactTitle {
+        font-size: 3rem;
       }
 
-      .txt {
-        width: 50%;
-      }
-
-      .pic {
-        width: 100%;
-        margin-top: 50px;
-        margin-bottom: 80px;
+      .support .list {
+        margin-top: 30px;
       }
     }
   }
@@ -116,20 +139,63 @@
 
 @media screen and (max-width: $mp) {
   .Contact {
+    > .inner {
+      .depth2 {
+        top: auto;
+        margin-top: 20px;
+        margin-right: 0;
+        &::before {
+          top: -40px;
+        }
+      }
+      h2 {
+        margin-top: 0;
+        margin-bottom: 30px;
+        &::before {
+          display: block;
+          bottom: 0;
+        }
+      }
+      .titleWrap {
+        padding-top: 50px;
+        padding-bottom: 30px;
+        p {
+          font-size: $fontL;
+          padding-right: 60px;
+          margin-bottom: 100px;
+        }
+      }
+    }
     article {
-      h3 {
-        width: 100%;
-        margin-bottom: 20px;
+      padding: 40px 30px;
+      &.contactWrap {
+        padding: 60px 30px;
+        .svg {
+          margin: 20px auto;
+          width: 50px;
+          height: 50px;
+        }
       }
-
-      .txt {
-        width: 100%;
+      .contactTitle {
+        text-align: center;
+        font-size: $fontXXL;
       }
-
-      .pic {
-        margin-top: 40px;
-        margin-bottom: 0px;
-        height: 120px;
+      .contactTxt {
+        text-align: center;
+        font-size: $fontL;
+      }
+      .support {
+        .supportWrap {
+          width: 100%;
+          text-align: center;
+          margin-bottom: 60px;
+        }
+        .supportTitle {
+          font-size: $fontXL;
+        }
+        .list {
+          margin-top: 10px;
+        }
       }
     }
   }
@@ -147,7 +213,7 @@
       th {
         width: 20%;
         border: none;
-        padding: 30px 30px;
+        padding: 30px 30px 30px 0;
         text-align: left;
         @include titleStyle2($fz: $fontXXL, $fw: 600);
 
@@ -211,26 +277,30 @@
 }
 
 @media screen and (max-width: $tablet) {
-  .contactForm {
+  .Contact .contactForm {
+    ::placeholder {
+      font-size: $fontL;
+    }
     > .inner {
       table {
-        td {
-          input[type="text"],
-          input[type="password"],
-          select,
-          textarea {
-            width: 80%;
+        th {
+          font-size: $fontXL;
+          input[type="reset"],
+          input[type="submit"] {
+            width: 150px;
+            font-size: $fontL;
           }
+        }
+        td {
           label {
             margin-right: 6px;
           }
-          input[type="radio"],
-          input[type="checkbox"] {
-            margin-right: 20px;
-          }
-
           .err {
             display: block;
+          }
+          input[type="text"],
+          textarea {
+            font-size: $fontL;
           }
         }
       }
@@ -239,27 +309,26 @@
 }
 
 @media screen and (max-width: $mp) {
-  .contactForm {
+  .Contact .contactForm {
     > .inner {
       table {
         th {
           display: none;
 
           &:last-child {
-            display: flex;
             width: 100%;
-            justify-content: space-between;
+            display: block;
 
             input[type="reset"],
             input[type="submit"] {
-              width: 45%;
-              margin: 0;
+              width: 46%;
+              margin: 2%;
             }
           }
         }
         td {
           border-left: none;
-
+          padding: 0;
           input[type="text"],
           input[type="password"],
           select,

@@ -18,7 +18,8 @@ function Gallery() {
   const [EnableClick, setEnableClick] = useState(true);
   const [Opt, setOpt] = useState(null);
   const masonryOptions = { transitionDuration: "0.5s" };
-
+  const subTxt =
+    "We make digital experiences that use technology to create emotions technology.";
   const depthTwo = [
     { name: "Gallery", path: "/pr/gallery" },
     { name: "Youtube", path: "/pr" },
@@ -53,22 +54,29 @@ function Gallery() {
 
   return (
     <>
-      <Layout name={"Gallery"} title={"Gallery"} depthTwo={depthTwo}>
+      <Layout
+        name={"Gallery"}
+        title={"Gallery"}
+        depthTwo={depthTwo}
+        subTxt={subTxt}
+      >
         {Loading && <Loader />}
         <div className="searchBox">
-          <input
-            className="search"
-            type="text"
-            ref={input}
-            placeholder='Please enter your search term. search for " package ".'
-            onKeyUp={(e) => {
-              if (e.key === "Enter") showSearch();
-            }}
-          />
-          <button className="btnSearch" onClick={showSearch}>
-            <span className="h">SEARCH</span>
-            <FontAwesomeIcon icon={faMagnifyingGlass} />
-          </button>
+          <div>
+            <input
+              className="search"
+              type="text"
+              ref={input}
+              placeholder='Please enter search for " package ".'
+              onKeyUp={(e) => {
+                if (e.key === "Enter") showSearch();
+              }}
+            />
+            <button className="btnSearch" onClick={showSearch}>
+              <span className="h">SEARCH</span>
+              <FontAwesomeIcon icon={faMagnifyingGlass} />
+            </button>
+          </div>
         </div>
         <div className="frame" ref={frame}>
           <Masonry elementType={"div"} options={masonryOptions}>

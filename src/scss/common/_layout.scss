@@ -37,10 +37,10 @@
     }
     h2 {
       display: inline-block;
-      padding-right: 150px;
+      padding-right: 180px;
       @include titleStyle($fw: 400, $c: #fff, $ff: $subTitle);
       opacity: 0;
-      transition: 0.5s 1s;
+      transition: 0.5s ease;
       transform: translateX(-100px);
       background-color: #000;
       &::before {
@@ -107,20 +107,17 @@
         }
       }
       h2 {
-        // font-size: 7vw;
+        font-size: 5rem;
         &::before {
-          // @include pseudo($b: -130px, $l: 0);
-          // width: 60px;
-          // height: 5px;
-          // background: #333;
+          margin-bottom: 40px;
         }
       }
     }
   }
 
   .top {
-    right: 90px;
-    bottom: 90px;
+    right: 30px;
+    bottom: 30px;
     width: 90px;
     height: 90px;
     font-size: 25px;
@@ -129,5 +126,44 @@
 
 @media screen and (max-width: $mp) {
   .content {
+    > .inner {
+      min-height: 600px;
+      padding: 100px 30px;
+      .depth2 {
+        position: relative;
+        text-align: right;
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 0;
+        li {
+          margin-left: 20px;
+        }
+        a {
+          font-size: $fontL;
+        }
+      }
+      .wrap {
+      }
+      .titleWrap {
+        padding-top: 50px;
+        p {
+        }
+      }
+      h2 {
+        font-size: 3rem;
+        padding-right: 0;
+        &::before {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .top {
+    right: 30px;
+    bottom: 30px;
+    width: 60px;
+    height: 60px;
+    font-size: 20px;
   }
 }

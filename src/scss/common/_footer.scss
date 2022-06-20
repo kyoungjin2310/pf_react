@@ -24,6 +24,25 @@ footer {
 @media screen and (max-width: $tablet) {
   footer {
     .inner {
+      padding: 50px 30px;
+      p {
+      }
+      a {
+      }
+    }
+  }
+}
+@media screen and (max-width: $mp) {
+  footer {
+    text-align: center;
+    .inner {
+      padding: 50px 30px;
+      p {
+        float: none;
+      }
+      .footerLink {
+        display: none;
+      }
     }
   }
 }

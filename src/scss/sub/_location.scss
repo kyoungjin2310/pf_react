@@ -45,23 +45,24 @@
   }
 }
 
-@media screen and (max-width: $mp) {
+@media screen and (max-width: $tablet) {
   .Map {
     .btnSet {
+      right: 30px;
       button {
         width: 100%;
         margin-bottom: 10px;
       }
-
-      ul {
-        width: 100%;
-        justify-content: space-between;
-
-        li {
-          margin: 0px;
-          width: 33%;
-          padding: 0px;
-        }
+    }
+  }
+}
+@media screen and (max-width: $mp) {
+  .Map {
+    .btnSet {
+      bottom: 30px;
+      ul li {
+        width: 100px;
+        font-size: $fontL;
       }
     }
   }
