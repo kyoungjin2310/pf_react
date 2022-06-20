@@ -29,17 +29,15 @@ const Title = forwardRef(({ aniTitle }, ref) => {
 
   return (
     <motion.span
-      className="App"
+      className="titleContainer"
       initial="hidden"
       animate={Hidden ? "visible" : "hidden"}
       variants={container}
       style={{ display: "block" }}
     >
-      <span className="container" style={{ display: "block" }}>
-        {placeholderText.map((item, index) => {
-          return <AnimatedText {...item} key={index} />;
-        })}
-      </span>
+      {placeholderText.map((item, index) => {
+        return <AnimatedText {...item} key={index} />;
+      })}
     </motion.span>
   );
 });

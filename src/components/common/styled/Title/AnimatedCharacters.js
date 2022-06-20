@@ -9,12 +9,6 @@ const Wrapper = (props) => {
   );
 };
 
-const tagMap = {
-  paragraph: "p",
-  heading1: "h2",
-  heading2: "h3",
-};
-
 const AnimatedCharacters = (props) => {
   const item = {
     hidden: {
@@ -38,8 +32,6 @@ const AnimatedCharacters = (props) => {
   words.map((word) => {
     return word.push("\u00A0");
   });
-
-  const Tag = tagMap[props.type];
 
   return (
     <>
