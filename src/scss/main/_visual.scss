@@ -5,8 +5,15 @@
   overflow: hidden;
   position: relative;
   padding: 150px 100px 0;
-  .visual {
-    &.active {
+
+  &.on {
+    .pic {
+      height: 750px;
+    }
+  }
+  &.hide {
+    .pic {
+      height: 0;
     }
   }
   .cursor {
@@ -61,6 +68,8 @@
     padding: 100px 0 0;
     overflow: hidden;
     text-align: center;
+    height: 0;
+    transition: all 1s $easing;
     img {
       width: 30vw;
     }
@@ -70,6 +79,7 @@
     right: 100px;
     top: 32vw;
     margin-top: -110px;
+    z-index: 1;
     button {
       outline: none;
       border: none;

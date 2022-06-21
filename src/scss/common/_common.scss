@@ -127,3 +127,35 @@ textarea::placeholder {
     transform: translateY(-50px) scaleX(1);
   }
 }
+
+//animation
+$easing: cubic-bezier(0.33, 1, 0.68, 1);
+@mixin commonTransition($easing: $easing, $duration: 0.5s, $transform: 2vh) {
+  opacity: 0;
+  transform: translateY($transform);
+  transition: transform $duration $easing, opacity $duration $easing,
+    background-color $duration $easing, color $duration $easing;
+}
+
+.ani-content {
+  @include commonTransition();
+  &.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@for $i from 1 through 50 {
+  .ani-content {
+    .list#{$i} {
+      @include commonTransition($transform: 10vh);
+      transition-delay: ($i * 0.25s);
+    }
+    &.active {
+      .list#{$i} {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+}

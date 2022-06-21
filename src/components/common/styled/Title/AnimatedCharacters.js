@@ -9,15 +9,16 @@ const Wrapper = (props) => {
   );
 };
 
+//0.33, 1, 0.68, 1
 const AnimatedCharacters = (props) => {
   const item = {
     hidden: {
       y: "200%",
-      transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.85 },
+      transition: { ease: [0.33, 1, 0.68, 1], duration: 0.85 },
     },
     visible: {
       y: 0,
-      transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.75 },
+      transition: { ease: [0.33, 1, 0.68, 1], duration: 0.65 },
     },
   };
 

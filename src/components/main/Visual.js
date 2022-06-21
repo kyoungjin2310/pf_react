@@ -19,20 +19,35 @@ function Visual() {
   };
   const prev = () => {
     title.current.hidden();
+    frame.current.classList.remove("on");
+    frame.current.classList.add("hide");
     setTimeout(() => {
+      frame.current.classList.remove("hide");
       setElNum((ElNum) =>
         ElNum === 0 ? (ElNum = visualTitle.length - 1) : --ElNum
       );
+      setTimeout(() => {
+        frame.current.classList.add("on");
+      }, 1000);
     }, 1000);
   };
   const next = () => {
     title.current.hidden();
+    frame.current.classList.remove("on");
+    frame.current.classList.add("hide");
     setTimeout(() => {
+      frame.current.classList.remove("hide");
       setElNum((ElNum) =>
         ElNum === visualTitle.length - 1 ? (ElNum = 0) : ++ElNum
       );
+      setTimeout(() => {
+        frame.current.classList.add("on");
+      }, 0);
     }, 1000);
   };
+  useEffect(() => {
+    frame.current.classList.add("on");
+  }, []);
   useEffect(() => {
     window.addEventListener("mousemove", mouseMove);
     frame.current.addEventListener("mouseenter", () => {
@@ -45,15 +60,15 @@ function Visual() {
     });
 
     return () => window.removeEventListener("mousemove", mouseMove);
-  }, []);
+  }, [ElNum]);
 
   return (
-    <figure id="visual" className="myScroll" ref={frame} onDrag={mouseMove}>
+    <figure id="visual" ref={frame} onDrag={mouseMove}>
       {visualTitle.map((item, idx) => {
         return (
           idx === ElNum && (
             <div
-              className={idx === ElNum ? "visual active" : "visual"}
+              className="visual"
               key={idx}
               onMouseEnter={() =>
                 (cursor.current.style = ` transform: translate(-50%, -50%)  scale(3) `)
