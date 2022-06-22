@@ -19,11 +19,7 @@ const About = () => {
   return (
     <Layout
       name={"About"}
-      title={
-        <>
-          A DESIGN STUDIO<span> RESEARCH STRATEGY</span>
-        </>
-      }
+      title={"A DESIGN STUDIO RESEARCH STRATEGY"}
       depthTwo={depthTwo}
     >
       <article className="info">

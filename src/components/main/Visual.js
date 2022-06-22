@@ -9,15 +9,18 @@ function Visual() {
   const cursor = useRef(null);
   const frame = useRef(null);
   const title = useRef(null);
-  let isCursor = false;
+  const enableClick = useRef(true);
+  const isCursor = useRef(false);
   const [ElNum, setElNum] = useState(0);
   const mouseMove = (e) => {
-    if (!isCursor) return;
+    if (!isCursor.current) return;
     const { clientX = 0, clientY = 0 } = e;
     cursor.current.style.left = clientX - 15 + "px";
     cursor.current.style.top = clientY - 15 + "px";
   };
   const prev = () => {
+    isCursor.current = true;
+    enableClick.current = false;
     title.current.hidden();
     frame.current.classList.remove("on");
     frame.current.classList.add("hide");
@@ -27,11 +30,15 @@ function Visual() {
         ElNum === 0 ? (ElNum = visualTitle.length - 1) : --ElNum
       );
       setTimeout(() => {
+        title.current.show();
         frame.current.classList.add("on");
-      }, 1000);
+        enableClick.current = false;
+      }, 0);
     }, 1000);
   };
   const next = () => {
+    isCursor.current = true;
+    enableClick.current = false;
     title.current.hidden();
     frame.current.classList.remove("on");
     frame.current.classList.add("hide");
@@ -41,21 +48,27 @@ function Visual() {
         ElNum === visualTitle.length - 1 ? (ElNum = 0) : ++ElNum
       );
       setTimeout(() => {
+        title.current.show();
         frame.current.classList.add("on");
+        enableClick.current = false;
       }, 0);
     }, 1000);
   };
   useEffect(() => {
-    frame.current.classList.add("on");
+    setTimeout(() => {
+      title.current.show();
+      frame.current.classList.add("on");
+    }, 100);
+    console.log("ddd");
   }, []);
   useEffect(() => {
     window.addEventListener("mousemove", mouseMove);
     frame.current.addEventListener("mouseenter", () => {
-      isCursor = true;
+      isCursor.current = true;
       cursor.current.style.display = "block";
     });
     frame.current.addEventListener("mouseleave", () => {
-      isCursor = false;
+      isCursor.current = false;
       cursor.current.style.display = "none";
     });
 
@@ -81,13 +94,19 @@ function Visual() {
                 <h2 className="title">
                   <Title ref={title} aniTitle={item.title} />
                 </h2>
-                <h3 className="subTitle">{item.subTitle}</h3>
+                <h3 className="subTitle">
+                  <span>{item.subTitle}</span>
+                </h3>
                 <div className="pic">
                   <img src={`${item.img}`} alt={`${item.title}`} />
                 </div>
                 <figcaption className="txt">
-                  <h4 className="subTitle2">{item.subTitle}</h4>
-                  <p>{item.txt}</p>
+                  <h4 className="subTitle2">
+                    <span>{item.subTitle}</span>
+                  </h4>
+                  <p>
+                    <span>{item.txt}</span>
+                  </p>
                 </figcaption>
               </div>
             </div>
@@ -96,11 +115,15 @@ function Visual() {
       })}
       <div className="cursor" ref={cursor}></div>
       <div className="num">
-        <strong>{ElNum + 1 < 10 ? `0${ElNum + 1}` : ElNum + 1}</strong>
+        <strong>
+          <i>{ElNum + 1 < 10 ? `0${ElNum + 1}` : ElNum + 1}</i>
+        </strong>
         <span>
-          {visualTitle.length < 10
-            ? `0${visualTitle.length}`
-            : visualTitle.length}
+          <i>
+            {visualTitle.length < 10
+              ? `0${visualTitle.length}`
+              : visualTitle.length}
+          </i>
         </span>
       </div>
       <div className="btn">

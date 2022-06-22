@@ -11,7 +11,7 @@ const Main = () => {
   const pos = useRef([]);
   const [Scrolled, setScrolled] = useState(0);
   let els = null;
-  const base = -600;
+  const base = -300;
 
   const getPos = () => {
     pos.current = [];

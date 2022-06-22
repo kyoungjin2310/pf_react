@@ -5,15 +5,80 @@
   overflow: hidden;
   position: relative;
   padding: 150px 100px 0;
-
   &.on {
     .pic {
-      height: 750px;
+      &::after {
+        transform: translateY(-100%) rotate(-7deg);
+      }
+    }
+    .txt {
+      .subTitle2 span,
+      p span {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+    }
+    .subTitle {
+      span {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+    }
+    .num {
+      strong,
+      span {
+        i {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+        }
+      }
+      strong {
+        &::after {
+          width: 150px;
+        }
+      }
     }
   }
   &.hide {
     .pic {
-      height: 0;
+      &::after {
+        transform: translateY(0) rotate(10deg);
+      }
+    }
+    .txt {
+      .subTitle2 span,
+      p span {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(50px);
+      }
+    }
+    .subTitle {
+      span {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(50px);
+      }
+    }
+    .num {
+      strong,
+      span {
+        i {
+          opacity: 0;
+          visibility: hidden;
+          transform: translateY(50%);
+          transition-delay: 0s;
+        }
+      }
+      strong {
+        &::after {
+          width: 0;
+          transition-delay: 0s;
+        }
+      }
     }
   }
   .cursor {
@@ -48,6 +113,13 @@
     left: 100px;
     bottom: 200px;
     @include titleStyle($fw: 400, $c: #aaa, $lh: 1.3, $fz: $fontL);
+    span {
+      display: block;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(50px);
+      transition: 1s $easing;
+    }
   }
   .txt {
     position: absolute;
@@ -60,6 +132,25 @@
     .subTitle2 {
       margin-bottom: 20px;
       @include titleStyle($fw: 600, $c: #fff, $lh: 1.3, $fz: $fontXL);
+      overflow: hidden;
+      span {
+        display: block;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(50px);
+        transition: 1s $easing;
+      }
+    }
+    p {
+      overflow: hidden;
+      span {
+        display: block;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(30px);
+        transition: 0.7s $easing;
+        transition-delay: 0.3s;
+      }
     }
   }
   .pic {
@@ -68,10 +159,17 @@
     padding: 100px 0 0;
     overflow: hidden;
     text-align: center;
-    height: 0;
-    transition: all 1s $easing;
     img {
       width: 30vw;
+    }
+    &::after {
+      @include pseudo($t: 0, $l: 0);
+      width: 100%;
+      height: 100%;
+      transform: translateY(0) rotate(-7deg);
+      background-color: #000;
+      transition: all 1s $easing;
+      transform-origin: bottom;
     }
   }
   .btn {
@@ -103,12 +201,35 @@
       font-weight: 600;
       padding-right: 170px;
       margin-right: 20px;
+      overflow: hidden;
       &::after {
-        @include pseudo($r: 0, $t: 50%);
-        width: 150px;
+        @include pseudo($l: 50px, $t: 50%);
+        width: 0;
         height: 2px;
         margin-top: -1px;
         background-color: #fff;
+        transition: 0.6s $easing;
+        transition-delay: 0.3s;
+      }
+      i {
+        display: block;
+        float: left;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(50%);
+        transition: 0.5s $easing;
+      }
+    }
+    span {
+      overflow: hidden;
+      i {
+        display: block;
+        float: right;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(50%);
+        transition: 0.5s $easing;
+        transition-delay: 0.9s;
       }
     }
   }

@@ -18,7 +18,7 @@ const AnimatedCharacters = (props) => {
     },
     visible: {
       y: 0,
-      transition: { ease: [0.33, 1, 0.68, 1], duration: 0.65 },
+      transition: { ease: [0.33, 1, 0.68, 1], duration: 0.85 },
     },
   };
 

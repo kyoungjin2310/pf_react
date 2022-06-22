@@ -10,29 +10,6 @@
     max-width: 1200px;
     margin: auto;
   }
-  // .picList {
-  //   width: 33.33%;
-  //   padding-left: 60px;
-  //   margin-bottom: 200px;
-  //   margin-top: 200px;
-  //   text-align: right;
-  //   .pic {
-  //     display: inline-block;
-  //   }
-  //   .txtTitle {
-  //     text-align: left;
-  //   }
-  //   &:nth-child(3n - 1) {
-  //     margin-top: 100px;
-  //     text-align: center;
-  //     .txtTitle {
-  //       text-align: left;
-  //     }
-  //   }
-  //   &:nth-child(3n + 1) {
-  //     margin-top: 0;
-  //     text-align: left;
-  //   }
   .picList {
     width: 50%;
     padding: 0 30px;
@@ -55,13 +32,13 @@
       cursor: pointer;
       &:hover {
         img {
-          clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+          clip-path: inset(0% 0% 0% 0% round 50%);
         }
       }
     }
     .imgWrap {
       width: 100%;
-      max-width: 450px;
+      max-width: 23.438vw;
       height: 70vh;
       min-height: 650px;
       overflow: hidden;
@@ -70,7 +47,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+      clip-path: inset(0% 0% 0% 0% round 0);
       transition: clip-path 1s cubic-bezier(0.19, 1, 0.22, 1);
     }
   }
@@ -78,6 +55,7 @@
     position: relative;
     text-align: center;
     margin-bottom: 400px;
+
     @include titleStyle($fw: 400, $c: #fff, $ff: $subTitle, $lh: 1.3);
     &::after {
       @include pseudo($t: 50%, $l: 50%);
@@ -89,9 +67,10 @@
     }
   }
   .txtTitle {
-    max-width: 450px;
+    max-width: 23.438vw;
     margin-top: 50px;
-    @include titleStyle($fw: 400, $c: #fff, $lh: 1.3, $fz: $fontXXL);
+    transform: translate(-2vw, -30vh);
+    @include titleStyle($fw: 400, $c: #fff, $lh: 1.3, $fz: 5rem);
   }
   .txt {
     text-align: center;
