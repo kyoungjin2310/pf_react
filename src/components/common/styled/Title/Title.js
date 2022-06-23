@@ -14,7 +14,7 @@ const Title = forwardRef(({ aniTitle }, ref) => {
     },
   };
 
-  // Quick and dirt for the example
+  //animation handle
   const handleHidden = () => {
     setHidden(false);
   };

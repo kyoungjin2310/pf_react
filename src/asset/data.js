@@ -89,3 +89,8 @@ export const workList = [
     img: "https://images.unsplash.com/photo-1635868388973-c49ca747a83b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80",
   },
 ];
+
+export const pics = {
+  title: "The Projects",
+  txt: "We make digital experiences that use technology to create emotions Strategy, design, content and technology Ok, you’ve made it to the last section. Phew. This is where we tell you that we make “digital experiences,” and where you ask us what the hell that’s supposed to mean. And where we ask you to mind your language, but then level with you, and tell you that to be honest it’s a bit of a catch-all term. A digital experience could be a website. Like a straight up normal website for your company, one that has an “about” page, and maybe some info about your services. Sort of like the page you are on right now. Or it could be a bit more experimental. It could be a game, or an installation.",
+};

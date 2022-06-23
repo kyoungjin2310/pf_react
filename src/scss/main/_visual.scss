@@ -1,8 +1,7 @@
 #visual {
   width: 100%;
-  min-height: 100vh;
+  min-height: calc(100vh + 300px);
   background: #000;
-  overflow: hidden;
   position: relative;
   padding: 150px 100px 0;
   &.on {
@@ -95,6 +94,13 @@
     pointer-events: none;
     transition: transform 0.3s;
   }
+  .titleWrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 150px 100px 0;
+    width: 100%;
+  }
   .title {
     position: relative;
     z-index: 1;
@@ -150,22 +156,30 @@
         transform: translateY(30px);
         transition: 0.7s $easing;
         transition-delay: 0.3s;
+        @include ellipsis(5, 1.5);
       }
     }
   }
   .pic {
     position: relative;
-    top: -220px;
+    width: 100%;
+    min-height: 100vh;
     padding: 100px 0 0;
     overflow: hidden;
     text-align: center;
     img {
+      position: absolute;
+      top: 200px;
+      left: 50%;
+      transform: translateX(-50%);
       width: 30vw;
+      height: 77vh;
+      object-fit: cover;
     }
     &::after {
       @include pseudo($t: 0, $l: 0);
       width: 100%;
-      height: 100%;
+      height: calc(100vh + 10vh);
       transform: translateY(0) rotate(-7deg);
       background-color: #000;
       transition: all 1s $easing;
@@ -191,9 +205,9 @@
     }
   }
   .num {
-    position: absolute;
-    left: 100px;
-    top: 27vw;
+    position: relative;
+    top: 50px;
+    display: inline-block;
     @include titleStyle($fw: 600, $c: #fff, $lh: 1.3, $fz: $fontXL);
     strong {
       position: relative;
@@ -230,6 +244,121 @@
         transform: translateY(50%);
         transition: 0.5s $easing;
         transition-delay: 0.9s;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  #visual .title {
+    margin-right: calc(30vw - 60px);
+    font-size: 7vw;
+  }
+}
+
+@media screen and (max-width: $tablet) {
+  #visual {
+    padding: 150px 30px 0;
+    &.on {
+      .pic {
+        &::after {
+        }
+      }
+      .txt {
+        .subTitle2 span,
+        p span {
+        }
+      }
+      .subTitle {
+        span {
+        }
+      }
+      .num {
+        strong,
+        span {
+          i {
+          }
+        }
+        strong {
+          &::after {
+            width: 70px;
+          }
+        }
+      }
+    }
+    &.hide {
+      .pic {
+        &::after {
+        }
+      }
+      .txt {
+        .subTitle2 span,
+        p span {
+          transform: translateY(20px);
+        }
+      }
+      .subTitle {
+        span {
+          transform: translateY(20px);
+        }
+      }
+      .num {
+        strong,
+        span {
+          i {
+          }
+        }
+        strong {
+          &::after {
+          }
+        }
+      }
+    }
+    .cursor {
+    }
+    .title {
+      font-size: 5rem;
+    }
+    .subTitle {
+      left: 30px;
+      span {
+      }
+    }
+    .txt {
+      margin-right: 30px;
+      .subTitle2 {
+        span {
+        }
+      }
+      p {
+        span {
+        }
+      }
+    }
+    .pic {
+      img {
+      }
+      &::after {
+      }
+    }
+    .btn {
+      right: 30px;
+      button {
+      }
+      svg {
+      }
+    }
+    .num {
+      strong {
+        padding-right: 100px;
+        &::after {
+        }
+        i {
+        }
+      }
+      span {
+        i {
+        }
       }
     }
   }

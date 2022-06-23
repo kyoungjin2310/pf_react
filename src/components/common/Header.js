@@ -1,33 +1,22 @@
-import { NavLink, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
-
+import { home, menu } from "../../asset/menu";
 function Header({ type }) {
   return (
     <header className={type}>
       <div className="inner">
         <h1>
-          <Link to="/">Neige</Link>
+          <Link to={`${home.link}`}>{home.title}</Link>
         </h1>
         <ul id="gnb">
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/work">Work</Link>
-          </li>
-          <li>
-            <Link to="/news">News</Link>
-          </li>
-          <li>
-            <Link to="/pr">PR</Link>
-          </li>
-          <li>
-            <Link to="/contact">Contact Us</Link>
-          </li>
-          <li>
-            <Link to="/join">Join</Link>
-          </li>
+          {menu.map((item, idx) => {
+            return (
+              <li key={idx}>
+                <Link to={`${item.link}`}>{item.title}</Link>
+              </li>
+            );
+          })}
         </ul>
 
         <FontAwesomeIcon icon={faBars} />

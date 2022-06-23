@@ -58,7 +58,7 @@ function Visual() {
     setTimeout(() => {
       title.current.show();
       frame.current.classList.add("on");
-    }, 100);
+    }, 200);
     console.log("ddd");
   }, []);
   useEffect(() => {
@@ -91,9 +91,23 @@ function Visual() {
               }
             >
               <div className="inner">
-                <h2 className="title">
-                  <Title ref={title} aniTitle={item.title} />
-                </h2>
+                <div className="titleWrap">
+                  <h2 className="title">
+                    <Title ref={title} aniTitle={item.title} />
+                  </h2>
+                  <div className="num">
+                    <strong>
+                      <i>{idx + 1 < 10 ? `0${idx + 1}` : idx + 1}</i>
+                    </strong>
+                    <span>
+                      <i>
+                        {visualTitle.length < 10
+                          ? `0${visualTitle.length}`
+                          : visualTitle.length}
+                      </i>
+                    </span>
+                  </div>
+                </div>
                 <h3 className="subTitle">
                   <span>{item.subTitle}</span>
                 </h3>
@@ -114,18 +128,7 @@ function Visual() {
         );
       })}
       <div className="cursor" ref={cursor}></div>
-      <div className="num">
-        <strong>
-          <i>{ElNum + 1 < 10 ? `0${ElNum + 1}` : ElNum + 1}</i>
-        </strong>
-        <span>
-          <i>
-            {visualTitle.length < 10
-              ? `0${visualTitle.length}`
-              : visualTitle.length}
-          </i>
-        </span>
-      </div>
+
       <div className="btn">
         <button className="prev" onClick={prev}>
           <span className="h">prev</span>
