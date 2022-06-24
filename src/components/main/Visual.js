@@ -59,7 +59,6 @@ function Visual() {
       title.current.show();
       frame.current.classList.add("on");
     }, 200);
-    console.log("ddd");
   }, []);
   useEffect(() => {
     window.addEventListener("mousemove", mouseMove);
@@ -84,10 +83,10 @@ function Visual() {
               className="visual"
               key={idx}
               onMouseEnter={() =>
-                (cursor.current.style = ` transform: translate(-50%, -50%)  scale(3) `)
+                (cursor.current.style = `transform: translate(-50%, -50%) scale(3)`)
               }
               onMouseLeave={() =>
-                (cursor.current.style = ` transform: translate(-50%, -50%)  scale(4.2) `)
+                (cursor.current.style = `transform: translate(-50%, -50%) scale(4.2)`)
               }
             >
               <div className="inner">
