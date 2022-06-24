@@ -25,11 +25,17 @@ const Top = () => {
     <button
       className={Top ? "top on" : "top"}
       onClick={() => {
-        new Anime(window, {
-          prop: "scroll",
-          value: 0,
-          duration: 500,
-        });
+        if (Enable) {
+          setEnable(false);
+          new Anime(window, {
+            prop: "scroll",
+            value: 0,
+            duration: 500,
+            callback: () => {
+              setEnable(true);
+            },
+          });
+        }
       }}
     >
       <span className="h">top</span>
