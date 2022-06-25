@@ -2,7 +2,6 @@
   width: 100%;
   margin-top: 200px;
   padding: 0 100px;
-  margin-bottom: 200px;
   .picWrap {
     display: flex;
     flex-wrap: wrap;
@@ -12,13 +11,16 @@
   }
   .picList {
     width: 50%;
-    padding: 0 30px;
-    margin-bottom: 200px;
     margin-top: 0;
     .pic {
-      display: inline-block;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: auto;
+      align-items: flex-start;
     }
     .txtTitle {
+      pointer-events: none;
       text-align: left;
     }
     &.even {
@@ -27,10 +29,13 @@
       .txtTitle {
         text-align: left;
       }
+      .pic {
+        justify-content: flex-end;
+      }
     }
+
     .pic {
-      cursor: pointer;
-      &:hover {
+      .imgWrap:hover {
         img {
           clip-path: inset(0% 0% 0% 0% round 50%);
         }
@@ -42,6 +47,7 @@
       height: 70vh;
       min-height: 650px;
       overflow: hidden;
+      cursor: pointer;
     }
     img {
       width: 100%;
@@ -77,5 +83,69 @@
     max-width: 1200px;
     margin: 0 auto 200px;
     @include txtStyle2($fz: $fontM, $c: #999, $lh: 1.8);
+  }
+}
+@media screen and (max-width: 1400px) {
+  #gallery {
+    padding-left: 30px;
+    padding-right: 30px;
+    .title {
+      font-size: 6rem;
+      padding-right: 0;
+    }
+    .txtTitle {
+      max-width: 100%;
+      font-size: 4rem;
+      padding-left: 30px;
+      transform: translate(-2vw, -20vh);
+    }
+    .picList.even .pic {
+      justify-content: center;
+    }
+    .picList .pic {
+      justify-content: center;
+    }
+    .picList .imgWrap {
+      min-height: 0;
+      height: 40vw;
+    }
+  }
+}
+@media screen and (max-width: 910px) {
+  #gallery {
+    margin-top: 100px;
+    .title {
+      font-size: 7.5vw;
+      padding-right: 0;
+      margin-bottom: 30vh;
+      &::after {
+        top: 15vh;
+        height: 10vh;
+        margin-top: 0;
+      }
+    }
+    .txtTitle {
+      margin-top: 30px;
+      margin-bottom: 100px;
+      padding: 0;
+      font-size: 5vw;
+      transform: translate(0);
+    }
+    .picWrap {
+      display: block;
+    }
+    .picList {
+      width: 100%;
+      &.even {
+        margin-top: 0;
+      }
+    }
+    .picList .pic {
+      display: block;
+    }
+    .picList .imgWrap {
+      max-width: 100%;
+      height: 40vh;
+    }
   }
 }

@@ -4,7 +4,7 @@ import AnimatedText from "../../styled/Title/AnimatedCharacters";
 
 const Title = forwardRef(({ aniTitle }, ref) => {
   const [Hidden, setHidden] = useState(false);
-  const placeholderText = [{ type: "heading2", text: aniTitle }];
+  const placeholderText = [{ text: aniTitle }];
 
   const container = {
     visible: {

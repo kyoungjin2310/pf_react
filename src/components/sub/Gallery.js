@@ -104,7 +104,7 @@ function Gallery() {
           </Masonry>
         </div>
       </Layout>
-      {/* 컴포넌트자체를 useRef로 참조 */}
+      {/* popup */}
       <Popup ref={pop}>
         {flickr.length !== 0 && (
           <img

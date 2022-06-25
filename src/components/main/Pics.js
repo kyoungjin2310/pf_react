@@ -24,14 +24,14 @@ function Pics() {
                   }
                   key={idx}
                 >
-                  <div
-                    className="pic"
-                    onClick={() => {
-                      setIndex(idx);
-                      pop.current.open();
-                    }}
-                  >
-                    <div className="imgWrap">
+                  <div className="pic">
+                    <div
+                      className="imgWrap"
+                      onClick={() => {
+                        setIndex(idx);
+                        pop.current.open();
+                      }}
+                    >
                       <img
                         src={`https://live.staticflickr.com/${item.server}/${item.id}_${item.secret}_b.jpg`}
                         alt={item.title}

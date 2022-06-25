@@ -2,7 +2,7 @@
   width: 100%;
   background: #000;
   position: relative;
-  padding: 150px 100px 300px;
+  padding: 150px 100px 200px;
   &.on {
     .pic {
       &::after {
@@ -176,8 +176,8 @@
       object-fit: cover;
     }
     &::after {
-      @include pseudo($t: 0, $l: 0);
-      width: 100%;
+      @include pseudo($t: 0, $l: -20%);
+      width: 120%;
       height: calc(100vh + 10vh);
       transform: translateY(0) rotate(-7deg);
       background-color: #000;
@@ -318,6 +318,7 @@
       }
     }
     .cursor {
+      display: none;
     }
     .title {
       font-size: 5rem;
@@ -384,5 +385,43 @@
   }
   #visual .txt p span {
     @include ellipsis(3, 1.5);
+  }
+}
+
+@media screen and (max-width: 700px) {
+  #visual .title {
+    margin-right: 0;
+    font-size: 7.5vw;
+  }
+  #visual .num {
+    top: 20px;
+    font-size: $fontM;
+  }
+  #visual .num strong::after {
+    left: 40px;
+  }
+  #visual .pic {
+    text-align: left;
+    min-height: 68vh;
+  }
+  #visual .pic img {
+    // position: inherit;
+    width: 50%;
+    height: 40vh;
+  }
+  #visual .txt {
+    display: none;
+  }
+  #visual .btn {
+    width: 100%;
+    top: 65%;
+    margin-top: 0;
+  }
+  #visual .btn button {
+    &.next {
+      float: right;
+    }
+  }
+  #visual .subTitle {
   }
 }

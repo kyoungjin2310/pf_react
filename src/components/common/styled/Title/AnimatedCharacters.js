@@ -9,7 +9,6 @@ const Wrapper = (props) => {
   );
 };
 
-//0.33, 1, 0.68, 1
 const AnimatedCharacters = (props) => {
   const item = {
     hidden: {

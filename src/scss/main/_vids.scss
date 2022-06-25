@@ -66,3 +66,26 @@
     @include ellipsis(2, 1.8);
   }
 }
+
+@media screen and (max-width: $tablet) {
+  #vids {
+    padding-left: 30px;
+    height: auto;
+    .title {
+      padding-right: 0;
+    }
+  }
+}
+@media screen and (max-width: 910px) {
+  #vids {
+    .title {
+      font-size: 7.5vw;
+      padding-right: 0;
+      margin-bottom: 20px;
+    }
+    .txtTitle {
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+  }
+}

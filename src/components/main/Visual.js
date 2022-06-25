@@ -109,9 +109,9 @@ function Visual() {
 
       <div
         className="btn"
-        onMouseEnter={() => cursor.current.big()}
+        onMouseEnter={() => cursor.current && cursor.current.big()}
         onMouseLeave={() => {
-          cursor.current.small();
+          cursor.current && cursor.current.small();
         }}
       >
         <button className="prev" onClick={prev}>

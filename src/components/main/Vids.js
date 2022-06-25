@@ -23,10 +23,13 @@ function Vids() {
             className="mySwiper"
             breakpoints={{
               // when window width is >= 320px
-              320: {
+              0: {
                 slidesPerView: 1,
               },
-              1180: {
+              700: {
+                slidesPerView: 2,
+              },
+              1200: {
                 slidesPerView: 3,
               },
             }}

@@ -11,16 +11,15 @@ const Cursor = forwardRef((props, ref) => {
   const target = useRef(null);
 
   const mouseMove = (e) => {
-    console.log(e, "mouseMove");
-    if (isCursor) {
-      const { clientX = 0, clientY = 0 } = e;
-      target.current.style.left = clientX - 15 + "px";
-      target.current.style.top = clientY - 15 + "px";
-    }
+    if (target.current === null) return;
+    const { clientX = 0, clientY = 0 } = e;
+    target.current.style.left = clientX - 15 + "px";
+    target.current.style.top = clientY - 15 + "px";
   };
 
   const show = () => {
     setIsCursor(true);
+
     target.current.style = `transform: translate(-50%, -50%) scale(3)`;
   };
   const hide = () => {
@@ -28,9 +27,11 @@ const Cursor = forwardRef((props, ref) => {
   };
 
   const small = () => {
+    if (target.current === null) return;
     target.current.style = `transform: translate(-50%, -50%) scale(3)`;
   };
   const big = () => {
+    if (target.current === null) return;
     target.current.style = `transform: translate(-50%, -50%) scale(4.2)`;
   };
 
