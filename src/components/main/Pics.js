@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { useSelector } from "react-redux";
-import Popup from "../common/Popup";
+import Popup from "../common/styled/popup/Popup";
 import { pics } from "../../asset/data";
 function Pics() {
   const flickr = useSelector((store) => store.flickrReducer.photo);

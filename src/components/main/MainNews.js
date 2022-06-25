@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { dummyPosts } from "../../asset/news";
-import Popup from "../common/Popup";
+import Popup from "../common/styled/popup/Popup";
 
 function MainNews() {
   const [Index, setIndex] = useState(0);

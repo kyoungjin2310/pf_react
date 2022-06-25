@@ -1,7 +1,7 @@
 import Layout from "../common/Layout";
 import { useState, useRef } from "react";
 import { useSelector } from "react-redux";
-import Popup from "../common/Popup";
+import Popup from "../common/styled/popup/Popup";
 
 function Youtube() {
   const depthTwo = [

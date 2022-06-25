@@ -3,6 +3,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { visualTitle } from "../../asset/mainData";
+import Cursor from "../common/styled/cursor/Cursor";
 import Title from "../common/styled/Title/Title";
 
 function Visual() {
@@ -10,16 +11,11 @@ function Visual() {
   const frame = useRef(null);
   const title = useRef(null);
   const enableClick = useRef(true);
-  const isCursor = useRef(false);
   const [ElNum, setElNum] = useState(0);
   const mouseMove = (e) => {
-    if (!isCursor.current) return;
-    const { clientX = 0, clientY = 0 } = e;
-    cursor.current.style.left = clientX - 15 + "px";
-    cursor.current.style.top = clientY - 15 + "px";
+    cursor.current.drag(e);
   };
   const prev = () => {
-    isCursor.current = true;
     enableClick.current = false;
     title.current.hidden();
     frame.current.classList.remove("on");
@@ -33,11 +29,10 @@ function Visual() {
         title.current.show();
         frame.current.classList.add("on");
         enableClick.current = false;
-      }, 0);
+      }, 100);
     }, 1000);
   };
   const next = () => {
-    isCursor.current = true;
     enableClick.current = false;
     title.current.hidden();
     frame.current.classList.remove("on");
@@ -51,44 +46,28 @@ function Visual() {
         title.current.show();
         frame.current.classList.add("on");
         enableClick.current = false;
-      }, 0);
+      }, 100);
     }, 1000);
   };
   useEffect(() => {
+    frame.current.addEventListener("mouseenter", () => {
+      cursor.current.show();
+    });
+    frame.current.addEventListener("mouseleave", () => {
+      cursor.current.hide();
+    });
     setTimeout(() => {
       title.current.show();
       frame.current.classList.add("on");
     }, 200);
   }, []);
-  useEffect(() => {
-    window.addEventListener("mousemove", mouseMove);
-    frame.current.addEventListener("mouseenter", () => {
-      isCursor.current = true;
-      cursor.current.style.display = "block";
-    });
-    frame.current.addEventListener("mouseleave", () => {
-      isCursor.current = false;
-      cursor.current.style.display = "none";
-    });
-
-    return () => window.removeEventListener("mousemove", mouseMove);
-  }, [ElNum]);
 
   return (
     <figure id="visual" ref={frame} onDrag={mouseMove}>
       {visualTitle.map((item, idx) => {
         return (
           idx === ElNum && (
-            <div
-              className="visual"
-              key={idx}
-              onMouseEnter={() =>
-                (cursor.current.style = `transform: translate(-50%, -50%) scale(3)`)
-              }
-              onMouseLeave={() =>
-                (cursor.current.style = `transform: translate(-50%, -50%) scale(4.2)`)
-              }
-            >
+            <div className="visual" key={idx}>
               <div className="inner">
                 <div className="titleWrap">
                   <h2 className="title">
@@ -107,28 +86,34 @@ function Visual() {
                     </span>
                   </div>
                 </div>
-                <h3 className="subTitle">
-                  <span>{item.subTitle}</span>
-                </h3>
                 <div className="pic">
-                  <img src={`${item.img}`} alt={`${item.title}`} />
-                </div>
-                <figcaption className="txt">
-                  <h4 className="subTitle2">
+                  <h3 className="subTitle">
                     <span>{item.subTitle}</span>
-                  </h4>
-                  <p>
-                    <span>{item.txt}</span>
-                  </p>
-                </figcaption>
+                  </h3>
+                  <img src={`${item.img}`} alt={`${item.title}`} />
+                  <figcaption className="txt">
+                    <h4 className="subTitle2">
+                      <span>{item.subTitle}</span>
+                    </h4>
+                    <p>
+                      <span>{item.txt}</span>
+                    </p>
+                  </figcaption>
+                </div>
               </div>
             </div>
           )
         );
       })}
-      <div className="cursor" ref={cursor}></div>
+      <Cursor ref={cursor}></Cursor>
 
-      <div className="btn">
+      <div
+        className="btn"
+        onMouseEnter={() => cursor.current.big()}
+        onMouseLeave={() => {
+          cursor.current.small();
+        }}
+      >
         <button className="prev" onClick={prev}>
           <span className="h">prev</span>
           <svg viewBox="0 0 476.213 476.213">

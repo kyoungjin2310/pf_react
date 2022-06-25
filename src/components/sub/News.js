@@ -2,7 +2,7 @@ import Layout from "../common/Layout";
 import { useRef, useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrashCan } from "@fortawesome/free-solid-svg-icons";
-import Popup from "../common/Popup";
+import Popup from "../common/styled/popup/Popup";
 import { Link } from "react-router-dom";
 function News() {
   const input = useRef(null);

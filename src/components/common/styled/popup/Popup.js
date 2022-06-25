@@ -25,8 +25,6 @@ const Popup = forwardRef(({ children }, ref) => {
     };
   });
 
-  useEffect(() => {}, []);
-
   return (
     <>
       <AnimatePresence>

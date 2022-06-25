@@ -2,7 +2,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper";
 import { useSelector } from "react-redux";
 import { useRef, useState } from "react";
-import Popup from "../common/Popup";
+import Popup from "../common/styled/popup/Popup";
 
 function Vids() {
   const Vids = useSelector((store) => store.youtubeReducer.youtube);
