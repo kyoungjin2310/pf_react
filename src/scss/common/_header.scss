@@ -26,7 +26,7 @@ header {
     #gnb {
       position: absolute;
       bottom: 10px;
-      right: 100px;
+      right: 200px;
 
       li {
         float: left;
@@ -43,9 +43,9 @@ header {
     .fa-bars {
       position: absolute;
       top: 40px;
-      right: 30px;
+      right: 100px;
       font-size: $fontXL;
-      display: none;
+      color: #fff;
     }
   }
 

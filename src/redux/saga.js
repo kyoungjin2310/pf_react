@@ -6,7 +6,6 @@ import * as types from "./actionType";
 export function* returnFlickr(action) {
   try {
     const response = yield call(fetchFlickr, action.Opt);
-    console.log(response, types.FLICKR.start);
     yield put({ type: types.FLICKR.success, payload: response });
   } catch (err) {
     yield put({ type: types.FLICKR.err, payload: err });
@@ -33,7 +32,6 @@ export function* callYoutube() {
 export function* returnMember() {
   try {
     const response = yield call(fetchMember);
-    console.log(response);
     yield put({ type: types.MEMBER.success, payload: response.data.members });
   } catch (err) {
     yield put({ type: types.MEMBER.err, payload: err });

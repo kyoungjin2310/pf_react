@@ -177,7 +177,7 @@
     }
     &::after {
       @include pseudo($t: 0, $l: -20%);
-      width: 120%;
+      width: 140%;
       height: calc(100vh + 10vh);
       transform: translateY(0) rotate(-7deg);
       background-color: #000;
@@ -378,6 +378,7 @@
     min-height: 77vh;
   }
   #visual .pic img {
+    width: 42%;
     height: 47vh;
   }
   #visual .txt {
@@ -402,19 +403,21 @@
   }
   #visual .pic {
     text-align: left;
-    min-height: 68vh;
+    min-height: 55vh;
+    overflow: hidden;
   }
   #visual .pic img {
-    // position: inherit;
+    position: inherit;
+    top: 0;
     width: 50%;
-    height: 40vh;
+    height: 35vh;
   }
   #visual .txt {
     display: none;
   }
   #visual .btn {
     width: 100%;
-    top: 65%;
+    top: 68%;
     margin-top: 0;
   }
   #visual .btn button {
@@ -423,5 +426,12 @@
     }
   }
   #visual .subTitle {
+    width: 100%;
+    text-align: center;
+  }
+  #visual .titleWrap {
+    padding-top: 0;
+    position: relative;
+    z-index: 1;
   }
 }

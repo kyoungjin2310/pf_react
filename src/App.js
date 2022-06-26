@@ -33,7 +33,6 @@ function App() {
         <Route exact path="/">
           <Main />
         </Route>
-
         <Route path="/" render={() => <Header type={"sub"} />} />
       </Switch>
       <Route path="/about" component={AboutRoutes} />

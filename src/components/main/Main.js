@@ -10,6 +10,7 @@ const Main = () => {
   const main = useRef(null);
   const pos = useRef([]);
   const [Scrolled, setScrolled] = useState(0);
+  const [Index, setIndex] = useState(0);
   let els = null;
   const base = -600;
 
@@ -39,7 +40,7 @@ const Main = () => {
       window.removeEventListener("resize", getPos);
       window.removeEventListener("scroll", activation);
     };
-  }, []);
+  }, [Index]);
 
   return (
     <>

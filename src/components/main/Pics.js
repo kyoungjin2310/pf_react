@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useSelector } from "react-redux";
 import Popup from "../common/styled/popup/Popup";
 import { pics } from "../../asset/data";
@@ -12,7 +12,7 @@ function Pics() {
       <section id="gallery">
         <h2 className="title">{pics.title}</h2>
         <p className="txt">{pics.txt}</p>
-        <div className="picWrap">
+        <div className="picWrap ani-content">
           {flickr.map((item, idx) => {
             if (idx < 8) {
               return (
