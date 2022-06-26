@@ -11,13 +11,13 @@ const Main = () => {
   const pos = useRef([]);
   const [Scrolled, setScrolled] = useState(0);
   const [Index, setIndex] = useState(0);
-  let els = null;
+  let els = [];
   const base = -600;
 
   const getPos = () => {
     pos.current = [];
     els = main.current.querySelectorAll(".ani-content");
-    for (const el of els) pos.current.push(el.getBoundingClientRect().top);
+    for (const el of els) pos.current.push(el.offsetTop);
   };
 
   const activation = () => {

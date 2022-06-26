@@ -32,7 +32,7 @@
     li a {
       position: relative;
       display: inline-block;
-      @include titleStyle($fz: 6vh, $c: #000);
+      @include titleStyle($fz: 7vh, $c: #000);
       overflow: hidden;
       vertical-align: top;
       transition: 0.25s $easing;
@@ -50,7 +50,7 @@
         transition: 0.25s $easing;
       }
       &:hover {
-        padding-left: 6vh;
+        padding-left: 7vh;
         &::before {
           width: 5vh;
         }
@@ -63,8 +63,19 @@
 }
 @media screen and (max-width: $tablet) {
   #mobileGnb {
+    .menu {
+      padding: 40px;
+    }
     h1 a {
       font-size: 5vw;
+    }
+    ul {
+      li a {
+        font-size: 6vh;
+        &:hover {
+          padding-left: 6vh;
+        }
+      }
     }
   }
 }

@@ -5,6 +5,17 @@ import Popup from "../common/styled/popup/Popup";
 function MainNews() {
   const [Index, setIndex] = useState(0);
   const pop = useRef(null);
+  const [Scrolled, setScrolled] = useState(0);
+  const base = -400;
+  const itemsRef = useRef([]);
+
+  const activation = () => {
+    const scroll = window.scrollY;
+    setScrolled(scroll);
+    if (scroll >= itemsRef.current.offsetTop + base) {
+      itemsRef.current.classList.add("active");
+    }
+  };
 
   const getLocalData = () => {
     const data = localStorage.getItem("post");
@@ -19,10 +30,17 @@ function MainNews() {
 
   useEffect(() => {
     localStorage.setItem("post", JSON.stringify(Posts));
+
+    window.addEventListener("resize", activation);
+    window.addEventListener("scroll", activation);
+    return () => {
+      window.removeEventListener("resize", activation);
+      window.removeEventListener("scroll", activation);
+    };
   }, []);
   return (
     <>
-      <section id="news">
+      <section id="news" ref={itemsRef}>
         <h2 className="title">What is it that we actually do?</h2>
         {Posts.map((post, idx) => {
           if (idx < 4) {

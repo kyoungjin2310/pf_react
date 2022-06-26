@@ -118,7 +118,9 @@ function News() {
     <>
       <Layout name={"News"} title={"News"} subTxt={subTxt}>
         <div className="write">
-          <button onClick={onWrite}>Write</button>
+          <button onClick={onWrite} className="ani-content4">
+            Write
+          </button>
         </div>
         <div className="showBox">
           {Posts.map((post, idx) => {

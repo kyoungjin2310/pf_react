@@ -16,8 +16,8 @@ const Contact = () => {
   const { location, email, call } = contactList;
   const depthTwo = [
     { name: "Contact Us", path: "/contact" },
-    { name: "Main Blog", path: "other" },
-    { name: "SNS", path: "other" },
+    { name: "Main Blog", path: "blog" },
+    { name: "SNS", path: "sns" },
   ];
   const subTxt =
     "Didn't find what you are looking for? Don't worry, we can help you.";

@@ -95,9 +95,21 @@ const Menu = forwardRef((props, ref) => {
               exit={{ y: "-100%", transition: { duration: 0.5, delay: 0.5 } }}
               onClick={() => setOpen(!Open)}
             >
-              <h1>
+              <motion.h1
+                initial={{ y: 50, opacity: 0 }}
+                animate={{
+                  y: 0,
+                  opacity: 1,
+                  transition: { duration: 0.5, delay: 0.5 },
+                }}
+                exit={{
+                  y: -50,
+                  opacity: 0,
+                  transition: { duration: 0.5 },
+                }}
+              >
                 <Link to={`${home.link}`}>{home.title}</Link>
-              </h1>
+              </motion.h1>
             </motion.div>
           )}
           <motion.div

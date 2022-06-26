@@ -159,3 +159,78 @@ $easing: cubic-bezier(0.33, 1, 0.68, 1);
     }
   }
 }
+
+@for $i from 1 through 13 {
+  .ani-content2 {
+    opacity: 0;
+    transform: translateY(100px);
+    &:nth-child(#{$i}) {
+      animation: fadeIn 1s $easing forwards;
+      @if ($i == 1) {
+        animation-delay: 0.25s;
+      } @else {
+        animation-delay: ($i * 0.25s);
+      }
+    }
+  }
+  @keyframes fadeIn {
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+.ani-orderTitle {
+  opacity: 0;
+  animation: titleFadeIn 0.8s $easing forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes titleFadeIn {
+  100% {
+    opacity: 1;
+  }
+}
+
+@for $i from 1 through 13 {
+  .ani-content3 {
+    opacity: 0;
+    transform: translateX(-50px);
+    &:nth-child(#{$i}) {
+      animation: fadeIn 1s $easing forwards;
+      @if ($i == 1) {
+        animation-delay: 0.25s;
+      } @else {
+        animation-delay: ($i * 0.25s);
+      }
+    }
+  }
+  @keyframes fadeIn {
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+@for $i from 1 through 13 {
+  .ani-content4 {
+    opacity: 0;
+    transform: translateX(50px);
+    &:nth-child(#{$i}) {
+      animation: fadeIn 1s $easing forwards;
+      @if ($i == 1) {
+        animation-delay: 0.25s;
+      } @else {
+        animation-delay: ($i * 0.25s);
+      }
+    }
+  }
+  @keyframes fadeIn {
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}

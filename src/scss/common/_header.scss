@@ -46,6 +46,7 @@ header {
       right: 100px;
       font-size: $fontXL;
       color: #fff;
+      cursor: pointer;
     }
   }
 
@@ -76,6 +77,7 @@ header {
   header {
     .inner {
       width: 100%;
+      padding: 0px 30px;
       h1 {
         left: 30px;
       }
@@ -83,6 +85,7 @@ header {
         display: none;
       }
       .fa-bars {
+        right: 30px;
         display: block;
         color: #fff;
       }

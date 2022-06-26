@@ -53,6 +53,10 @@ const Closed = styled.span`
       transition-delay: 1.225s;
     }
   }
+  @media screen and (max-width: 1270px) {
+    top: 50px;
+    right: 30px;
+  }
   @media screen and (max-width: 900px) {
     top: 45px;
     right: 20px;

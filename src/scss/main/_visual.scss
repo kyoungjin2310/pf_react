@@ -263,25 +263,7 @@
       padding-left: 30px;
     }
     &.on {
-      .pic {
-        &::after {
-        }
-      }
-      .txt {
-        .subTitle2 span,
-        p span {
-        }
-      }
-      .subTitle {
-        span {
-        }
-      }
       .num {
-        strong,
-        span {
-          i {
-          }
-        }
         strong {
           &::after {
             width: 70px;
@@ -290,10 +272,6 @@
       }
     }
     &.hide {
-      .pic {
-        &::after {
-        }
-      }
       .txt {
         .subTitle2 span,
         p span {
@@ -303,17 +281,6 @@
       .subTitle {
         span {
           transform: translateY(20px);
-        }
-      }
-      .num {
-        strong,
-        span {
-          i {
-          }
-        }
-        strong {
-          &::after {
-          }
         }
       }
     }
@@ -323,32 +290,16 @@
     .title {
       font-size: 5rem;
     }
-    .subTitle {
-      span {
-      }
-    }
     .txt {
       padding-left: 50px;
-      .subTitle2 {
-        span {
-        }
-      }
-      p {
-        span {
-        }
-      }
     }
     .pic {
       img {
         height: 57vh;
       }
-      &::after {
-      }
     }
     .btn {
       right: 30px;
-      button {
-      }
       svg {
         width: 50px;
       }
@@ -356,82 +307,82 @@
     .num {
       strong {
         padding-right: 100px;
-        &::after {
-        }
-        i {
-        }
-      }
-      span {
-        i {
-        }
       }
     }
   }
 }
 
 @media screen and (max-width: 910px) {
-  #visual .title {
-    margin-right: calc(30vw - 40px);
-    font-size: 7.5vw;
-  }
-  #visual .pic {
-    min-height: 77vh;
-  }
-  #visual .pic img {
-    width: 42%;
-    height: 47vh;
-  }
-  #visual .txt {
-    top: 45vh;
-  }
-  #visual .txt p span {
-    @include ellipsis(3, 1.5);
+  #visual {
+    .title {
+      margin-right: calc(30vw - 40px);
+      font-size: 7.5vw;
+    }
+    .pic {
+      min-height: 77vh;
+      img {
+        width: 42%;
+        height: 47vh;
+      }
+    }
+    .txt {
+      top: 45vh;
+      p {
+        span {
+          @include ellipsis(3, 1.5);
+        }
+      }
+    }
   }
 }
 
 @media screen and (max-width: 700px) {
-  #visual .title {
-    margin-right: 0;
-    font-size: 7.5vw;
-  }
-  #visual .num {
-    top: 20px;
-    font-size: $fontM;
-  }
-  #visual .num strong::after {
-    left: 40px;
-  }
-  #visual .pic {
-    text-align: left;
-    min-height: 55vh;
-    overflow: hidden;
-  }
-  #visual .pic img {
-    position: inherit;
-    top: 0;
-    width: 50%;
-    height: 35vh;
-  }
-  #visual .txt {
-    display: none;
-  }
-  #visual .btn {
-    width: 100%;
-    top: 68%;
-    margin-top: 0;
-  }
-  #visual .btn button {
-    &.next {
-      float: right;
+  #visual {
+    .title {
+      margin-right: 0;
+      font-size: 7.5vw;
     }
-  }
-  #visual .subTitle {
-    width: 100%;
-    text-align: center;
-  }
-  #visual .titleWrap {
-    padding-top: 0;
-    position: relative;
-    z-index: 1;
+    .num {
+      top: 20px;
+      font-size: $fontM;
+      strong::after {
+        left: 40px;
+      }
+    }
+    .pic {
+      text-align: left;
+      min-height: 55vh;
+      overflow: hidden;
+      img {
+        position: inherit;
+        top: 0;
+        width: 50%;
+        height: 35vh;
+      }
+    }
+    .txt {
+      display: none;
+    }
+    .btn {
+      width: 100%;
+      top: 68%;
+      margin-top: 0;
+      button {
+        &.next {
+          float: right;
+        }
+      }
+    }
+    .subTitle {
+      width: 100%;
+      text-align: center;
+    }
+    .titleWrap {
+      padding-right: 0;
+      padding-left: 0;
+      padding-top: 0;
+      position: relative;
+      z-index: 1;
+    }
   }
 }

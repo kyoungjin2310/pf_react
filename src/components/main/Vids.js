@@ -22,7 +22,6 @@ function Vids() {
             modules={[Pagination, Navigation]}
             className="mySwiper"
             breakpoints={{
-              // when window width is >= 320px
               0: {
                 slidesPerView: 1,
               },
