@@ -1,5 +1,5 @@
 import { Route, Switch } from "react-router-dom";
-import "./scss/style.scss";
+import "./asset/scss/style.scss";
 import Header from "./components/common/Header";
 import Footer from "./components/common/Footer";
 //main
@@ -10,7 +10,7 @@ import AboutRoutes from "./routes/AboutRoutes";
 import ContactRoutes from "./routes/ContactRoutes";
 import PrRoutes from "./routes/PrRoutes";
 import Work from "./components/sub/Work";
-import NewsRoutes from "./routes/NewsRoutes";
+import News from "./components/sub/News";
 
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
@@ -37,7 +37,7 @@ function App() {
       </Switch>
       <Route path="/about" component={AboutRoutes} />
       <Route path="/work" component={Work} />
-      <Route path="/news" component={NewsRoutes} />
+      <Route path="/news" component={News} />
       <Route path="/pr" component={PrRoutes} />
       <Route path="/contact" component={ContactRoutes} />
       <Route path="/join" component={Join} />

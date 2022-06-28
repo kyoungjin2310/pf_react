@@ -1,4 +1,4 @@
-export const dummyPosts = [
+export const newsPosts = [
   {
     title: "Why we still love original anti-minimalist William Morris",
     content:

@@ -1,9 +1,9 @@
-import Layout from "../common/Layout";
+import Layout from "./Layout";
 import { useEffect, useState, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Masonry from "react-masonry-component";
 import Popup from "../common/styled/popup/Popup";
-import Loader from "../common/Loader";
+import Loader from "../common/styled/Loader";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 

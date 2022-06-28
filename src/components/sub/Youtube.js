@@ -1,4 +1,4 @@
-import Layout from "../common/Layout";
+import Layout from "./Layout";
 import { useState, useRef } from "react";
 import { useSelector } from "react-redux";
 import Popup from "../common/styled/popup/Popup";

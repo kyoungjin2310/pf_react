@@ -1,32 +1,32 @@
 {
   "members": [
     {
-      "name": "Julia",
+      "name": "Leanne",
       "position": "CEO",
       "pic": "member1.jpg"
     },
     {
-      "name": "David",
+      "name": "Aiden",
       "position": "Vice President",
       "pic": "member2.jpg"
     },
     {
-      "name": "Emily",
+      "name": "Dennis",
       "position": "UI Designer",
       "pic": "member3.jpg"
     },
     {
-      "name": "Paul",
+      "name": "Johns",
       "position": "Front-end Dev",
       "pic": "member4.jpg"
     },
     {
-      "name": "Julia",
+      "name": "Glenna",
       "position": "Back-en Dev",
       "pic": "member5.jpg"
     },
     {
-      "name": "Peter",
+      "name": "Nicholas",
       "position": "Project Manager",
       "pic": "member6.jpg"
     }

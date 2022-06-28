@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "../common/Layout";
+import Layout from "./Layout";
 import {
   aboutList,
   aboutSubTitle,

@@ -1,4 +1,4 @@
-import Layout from "../common/Layout";
+import Layout from "./Layout";
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 

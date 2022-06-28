@@ -1,7 +1,7 @@
-import Layout from "../common/Layout";
+import Layout from "./Layout";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { path } from "../../api";
+import { path } from "../../asset/api";
 
 function Team() {
   const [Members, setMembers] = useState([]);

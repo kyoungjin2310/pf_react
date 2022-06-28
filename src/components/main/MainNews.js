@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { dummyPosts } from "../../asset/news";
+import { newsPosts } from "../../asset/news";
 import Popup from "../common/styled/popup/Popup";
 
 function MainNews() {
@@ -22,7 +22,7 @@ function MainNews() {
     if (data) {
       return JSON.parse(data);
     } else {
-      return dummyPosts;
+      return newsPosts;
     }
   };
 

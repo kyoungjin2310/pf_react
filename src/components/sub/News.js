@@ -1,9 +1,11 @@
-import Layout from "../common/Layout";
+import Layout from "./Layout";
 import { useRef, useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import Popup from "../common/styled/popup/Popup";
 import { Link } from "react-router-dom";
+import { newsPosts } from "../../asset/news";
+
 function News() {
   const input = useRef(null);
   const textarea = useRef(null);
@@ -16,7 +18,11 @@ function News() {
     "We make digital experiences that use technology to create emotions technology.";
   const getLocalData = () => {
     const data = localStorage.getItem("post");
-    return JSON.parse(data);
+    if (data) {
+      return JSON.parse(data);
+    } else {
+      return newsPosts;
+    }
   };
 
   const [Posts, setPosts] = useState(getLocalData());
@@ -59,7 +65,6 @@ function News() {
 
   //글 삭제 함수
   const deletePost = (index) => {
-    console.log(index);
     setPosts(Posts.filter((_, idx) => index !== idx));
   };
 

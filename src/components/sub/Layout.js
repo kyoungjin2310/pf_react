@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { NavLink } from "react-router-dom";
-import Top from "./Top";
+import { Link } from "react-router-dom";
+import Top from "../common/Top";
 import Title from "../common/styled/Title/Title";
 
 function Layout({ name, title, children, depthTwo, subTxt }) {
@@ -16,7 +16,7 @@ function Layout({ name, title, children, depthTwo, subTxt }) {
   const pos = useRef([]);
   const [Scrolled, setScrolled] = useState(0);
   let els = [];
-  const base = -700;
+  const base = -800;
 
   const getPos = () => {
     pos.current = [];
@@ -75,7 +75,7 @@ function Layout({ name, title, children, depthTwo, subTxt }) {
                           >
                             {item.name}
                           </a>
-                        )) || <NavLink to={item.path}>{item.name}</NavLink>}
+                        )) || <Link to={item.path}>{item.name}</Link>}
                     </li>
                   );
                 })}
