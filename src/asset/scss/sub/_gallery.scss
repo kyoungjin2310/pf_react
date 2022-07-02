@@ -122,12 +122,6 @@
 
 @media screen and (max-width: $tablet) {
   .Gallery {
-    .searchBox {
-      .search {
-      }
-      .btnSearch {
-      }
-    }
     > .inner {
       padding: 200px 30px 0;
       .depth2 {
@@ -149,23 +143,8 @@
       }
     }
     .frame {
-      &.on {
-      }
-
       article {
         width: 33.33%;
-        .inner {
-          .pic {
-            img {
-            }
-          }
-          h3 {
-          }
-          &:hover {
-            h3 {
-            }
-          }
-        }
       }
     }
   }
@@ -175,10 +154,6 @@
   .Gallery {
     .searchBox {
       margin: 0 10px 30px;
-      .search {
-      }
-      .btnSearch {
-      }
     }
     > .inner {
       padding-top: 100px;
@@ -209,23 +184,8 @@
       }
     }
     .frame {
-      &.on {
-      }
-
       article {
         width: 100%;
-        .inner {
-          .pic {
-            img {
-            }
-          }
-          h3 {
-          }
-          &:hover {
-            h3 {
-            }
-          }
-        }
       }
     }
   }
