@@ -1,10 +1,10 @@
 import axios from "axios";
 //flickr
 export const fetchFlickr = async (opt) => {
-  const key = "f214f4f8200fa66223b5d3c4cc803bbd";
+  const key = process.env.REACT_APP_FLICKR_KEY;
   const method_search = "flickr.photos.search";
   const method_user = "flickr.photosets.getPhotos";
-  const photoset_id = "72177720299755526";
+  const photoset_id = process.env.REACT_APP_FLICKR_PHOTOSET_ID;
   let url = "";
   let result = "";
   if (opt.type === "search") {
@@ -25,8 +25,8 @@ export const fetchFlickr = async (opt) => {
 
 //youtube
 export const fetchYoutube = async () => {
-  const key = "AIzaSyC3omc-8Wk_cZwj-pkpAlVSxJizrP0IL9k";
-  const playlist = "PLTncuNK6QrZME9vBo7RMvsNoxAPUG8LUw";
+  const key = process.env.REACT_APP_YOUTUBE_KEY;
+  const playlist = process.env.REACT_APP_YOUTUBE_PLAYLIST;
   const num = 8;
   const url = `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&key=${key}&playlistId=${playlist}&maxResults=${num}`;
 
