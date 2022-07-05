@@ -16,6 +16,9 @@
       box-sizing: border-box;
     }
 
+    body{
+      background: #000;
+    }
     .loader{
       width: 120px;
       height: 75px;
@@ -110,19 +113,11 @@
     const mask = document.querySelector('.mask');
     let tags = '';
 
-    //동적으로 배열에 있는 이미지, 영상 소스를 가지고 index.html에 DOM강제생성
-    //DOM이 생성되면서 수반되는  영상, 소스이미지가 브라우저에 캐싱되는 동안에는 mask화면 보여줌
-    //모든 영상, 소스이미지가 캐싱완료되면 마스크와 강제로 만들어진 DOM프레임인 defaults를 모두 제거
-    //그 사이 React 컴포넌트 파일들이 모두 리얼돔으로 변환되서 화면출력되 있음
-
     createDOM();
 
-    //Promise.all()로 loadImg, loadVid함수가 모두 프로미스 객체를 반환할때까지 기다리다 동기화처리
     Promise.all([loadImg()]).then(result => {
-      //각 함수의 리턴값을 비구조화 할당으로 변수에 각각 저장
       [loadedImg] = result;
 
-      //두개의 값이 모두 true를 리턴하면 (모든 DOM소스가 로딩완료되면)
       if (loadedImg) {
         mask.classList.add('off');
         setTimeout(() => {
@@ -132,15 +127,15 @@
       }
     })
 
-    //DOM생성함수
-    function createDOM() {
+    //DOM생성
+      function createDOM() {
       imgs.forEach(src => {
         tags += `<img src=${src} />`
       })
       defaults.innerHTML = tags;
     }
 
-    //이미지 소스가 모두 로딩되면 프로미스 객체로 true반환 함수
+    //img
     function loadImg() {
       return new Promise((res, rej) => {
         let countImg = 0;

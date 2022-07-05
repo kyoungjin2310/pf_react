@@ -56,3 +56,12 @@
     }
   }
 }
+
+@media screen and (max-width: 900px) {
+  .pop {
+    padding-top: 165px;
+  }
+  .pop .con .close {
+    top: -65px;
+  }
+}

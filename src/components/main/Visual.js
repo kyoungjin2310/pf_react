@@ -59,7 +59,7 @@ function Visual() {
     setTimeout(() => {
       title.current.show();
       frame.current.classList.add("on");
-    }, 200);
+    }, 700);
   }, []);
 
   return (
