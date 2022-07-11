@@ -1,47 +1,13 @@
 import React, { useRef, useEffect, useState } from "react";
 import { workList } from "../../asset/data";
+import Scroll from "../common/styled/scroll/Scroll";
 import Top from "../common/Top";
 
 const Work = () => {
   const workTitle = useRef(null);
-  const frame = useRef(null);
-
-  //scroll
-  const pos = useRef([]);
-  const [Scrolled, setScrolled] = useState(0);
-  let els = [];
-  const base = 300;
-
-  const getPos = () => {
-    pos.current = [];
-    els = frame.current.querySelectorAll(".list");
-    for (const el of els) pos.current.push(el.offsetTop);
-  };
-
-  const activation = () => {
-    const scroll = window.scrollY;
-    setScrolled(scroll);
-
-    pos.current.map((pos, idx) => {
-      if (scroll >= pos + base) {
-        els[idx].classList.add("active");
-      }
-    });
-  };
-
-  useEffect(() => {
-    getPos();
-
-    window.addEventListener("resize", getPos);
-    window.addEventListener("scroll", activation);
-    return () => {
-      window.removeEventListener("resize", getPos);
-      window.removeEventListener("scroll", activation);
-    };
-  }, []);
   return (
     <>
-      <div className="Work" ref={frame}>
+      <Scroll className="Work">
         <h2 className="workTitle ani-orderTitle" ref={workTitle}>
           <span>WORK</span>
         </h2>
@@ -64,7 +30,7 @@ const Work = () => {
             );
           })}
         </ul>
-      </div>
+      </Scroll>
       <Top />
     </>
   );

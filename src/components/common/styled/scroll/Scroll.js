@@ -1,10 +1,10 @@
 import { useRef, useEffect, useState } from "react";
-function Scroll({ children }) {
+function Scroll({ children, className }) {
   const divScroll = useRef(null);
   const pos = useRef([]);
   const [Scrolled, setScrolled] = useState(0);
   let secs = [];
-  const base = -600;
+  const base = -700;
 
   const getPos = () => {
     pos.current = [];
@@ -36,7 +36,9 @@ function Scroll({ children }) {
 
   return (
     <>
-      <div ref={divScroll}>{children}</div>
+      <section ref={divScroll} className={className}>
+        {children}
+      </section>
     </>
   );
 }

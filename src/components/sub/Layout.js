@@ -2,53 +2,17 @@ import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Top from "../common/Top";
 import Title from "../common/styled/Title/Title";
+import Scroll from "../common/styled/scroll/Scroll";
 
 function Layout({ name, title, children, depthTwo, subTxt }) {
-  const frame = useRef(null);
   const subTitle = useRef(null);
 
   useEffect(() => {
     subTitle.current.show();
-    frame.current.classList.add("on");
   }, []);
-
-  //scroll
-  const pos = useRef([]);
-  const [Scrolled, setScrolled] = useState(0);
-  let els = [];
-  const base = -800;
-
-  const getPos = () => {
-    pos.current = [];
-    els = frame.current.querySelectorAll(".ani-content");
-    for (const el of els) pos.current.push(el.offsetTop);
-  };
-
-  const activation = () => {
-    const scroll = window.scrollY;
-    setScrolled(scroll);
-
-    pos.current.map((pos, idx) => {
-      if (scroll >= pos + base) {
-        els[idx].classList.add("active");
-      }
-    });
-  };
-
-  useEffect(() => {
-    getPos();
-
-    window.addEventListener("resize", getPos);
-    window.addEventListener("scroll", activation);
-    return () => {
-      window.removeEventListener("resize", getPos);
-      window.removeEventListener("scroll", activation);
-    };
-  }, [depthTwo]);
-
   return (
     <>
-      <section className={`content ${name}`} ref={frame}>
+      <Scroll className={`content on ${name}`}>
         <div className="inner">
           <div className="titleWrap">
             <h2>
@@ -84,7 +48,7 @@ function Layout({ name, title, children, depthTwo, subTxt }) {
           </div>
           {children}
         </div>
-      </section>
+      </Scroll>
       <Top />
     </>
   );
