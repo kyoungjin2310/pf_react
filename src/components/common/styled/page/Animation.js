@@ -1,5 +1,3 @@
-/** @format */
-
 export const TransAnimation = {
   hidden: { scaleY: 2, y: 500 },
   show: { scaleY: 3, y: -2000 },
