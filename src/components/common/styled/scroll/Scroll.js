@@ -1,15 +1,15 @@
 import { useRef, useEffect, useState } from "react";
-function Scroll({ children, className }) {
+let secs = [];
+function Scroll({ children, className, baseLine }) {
   const divScroll = useRef(null);
   const pos = useRef([]);
   const [Scrolled, setScrolled] = useState(0);
-  let secs = [];
-  const base = -700;
+  const base = baseLine;
 
   const getPos = () => {
     pos.current = [];
     secs = divScroll.current?.querySelectorAll(".ani-content");
-    for (const sec of secs) pos.current.push(sec.offsetTop);
+    for (const sec of secs) pos.current.push(sec.getBoundingClientRect().top);
   };
 
   const activation = () => {

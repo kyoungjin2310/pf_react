@@ -7,14 +7,19 @@ const Work = () => {
   const workTitle = useRef(null);
   return (
     <>
-      <Scroll className="Work">
+      <Scroll className="Work" baseLine={-600}>
         <h2 className="workTitle ani-orderTitle" ref={workTitle}>
           <span>WORK</span>
         </h2>
         <ul className="workList">
           {workList.map((item, idx) => {
             return (
-              <li key={idx} className={idx % 2 === 0 ? "list odd" : "list"}>
+              <li
+                key={idx}
+                className={
+                  idx % 2 === 0 ? "list odd ani-content" : "list ani-content"
+                }
+              >
                 <div className="pic">
                   <img src={item.img} alt={item.title} />
                 </div>
