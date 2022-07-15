@@ -8,11 +8,24 @@ function Layout({ name, title, children, depthTwo, subTxt }) {
   const subTitle = useRef(null);
 
   useEffect(() => {
-    subTitle.current.show();
+    const content = document.querySelector(".content");
+    const menu = document.querySelector("#mobileGnb");
+    if (menu) {
+      setTimeout(() => {
+        content.classList.add("on");
+        subTitle.current.show();
+      }, 1000);
+    } else {
+      content.classList.add("on");
+      subTitle.current.show();
+    }
+    return () => {
+      content.classList.remove("on");
+    };
   }, []);
   return (
     <>
-      <Scroll className={`content on ${name}`} baseLine={-700}>
+      <Scroll className={`content ${name}`} baseLine={-700}>
         <div className="inner">
           <div className="titleWrap">
             <h2>
