@@ -51,6 +51,18 @@
       }
     }
   }
+  .noImage {
+    text-align: center;
+    svg {
+      width: 300px;
+      height: 300px;
+      fill: #fff;
+    }
+    .txt {
+      display: block;
+      @include titleStyle($c: #fff, $fw: 500, $fz: $fontXXL);
+    }
+  }
 
   &.on {
     > .inner {
@@ -147,6 +159,15 @@
         &::before {
           display: none;
         }
+      }
+    }
+    .noImage {
+      svg {
+        width: 200px;
+        height: 200px;
+      }
+      .txt {
+        font-size: $fontL;
       }
     }
   }
