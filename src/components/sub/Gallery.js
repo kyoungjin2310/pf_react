@@ -6,6 +6,7 @@ import Popup from "../common/styled/popup/Popup";
 import Loader from "../common/styled/Loader";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import NoImage from "../common/styled/NoImage";
 
 function Gallery() {
   const flickr = useSelector((store) => store.flickrReducer.photo);
@@ -48,7 +49,6 @@ function Gallery() {
   }, [Opt]);
 
   useEffect(() => {
-    console.log(flickr, "flickr");
     endLoading();
   }, [flickr]);
 
@@ -102,6 +102,7 @@ function Gallery() {
               );
             })}
           </Masonry>
+          {flickr.length === 0 && <NoImage />}
         </div>
       </Layout>
       {/* popup */}
